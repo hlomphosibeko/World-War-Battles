@@ -28,6 +28,21 @@ class Board:
             player_board.print()
             print(f"{computer_board.name}'s Board")
             computer_board.print()
+            results = make_guess(computer_board)
+            print(f"{player_board.name} guessed: {computer_board.guesses[-1]}")
+            print(f"{player_board.name} {results}ed!!!")
+
+            if results == "Hit":
+                scores["player1"] = scores["player1"]+1
+            answer = make_guess(player_board)
+            print(f"{computer_board.name} guessed: {player_board.guesses[-1]}")
+
+            if answer =="Hit":
+                scores["computer"] = scores["computer"]+1
+            print(18*"--")
+            print("After this round, the scores are:")
+            print(f"{player_board.name}: {scores[player1]}.{computer_board.name}: {scores['computer']}")
+            print(18*"--")
 
     def new_game():
         """
