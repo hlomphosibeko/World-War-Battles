@@ -19,6 +19,15 @@ class Board:
         self.guesses = []
         self.ships = []
 
+    def play_game(computer_board, player_board):
+        """
+        Playing the game.
+        """
+        for i in range(5):
+            print(f"{player_board.name}'s Board")
+            player_board.print()
+            print(f"{computer_board.name}'s Board")
+            computer_board.print()
 
     def new_game():
         """
