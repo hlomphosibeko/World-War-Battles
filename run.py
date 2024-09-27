@@ -1,3 +1,4 @@
+from random import randint
 
 my_list = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
 my_list[0][4] = 'a'
@@ -13,7 +14,11 @@ my_guesses = [(0, 4), (4, 0)]
 my_guesses.append((0, 0))
 print(my_guesses)
 
+def random_number(size):
+    return randint(0, size)
+    
 
 
 
-
+x = random_number(4)
+print(x)
