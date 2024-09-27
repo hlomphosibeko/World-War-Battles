@@ -15,7 +15,7 @@ my_guesses.append((0, 0))
 print(my_guesses)
 
 def random_number(size):
-    return randint(0, size - 1)
+    return randint(0, size)
     
 
 
