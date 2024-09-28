@@ -62,7 +62,7 @@ print(my_ships)
 #x = random_number(4)
 #print(x)
 
-guess_generator(0,1)
+guess_generator(int(input("Insert a row: ")), int(input("Insert a column: ")))
 #guess_generator(2,1)
 print(my_board)
 print(my_guesses)
