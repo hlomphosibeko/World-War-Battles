@@ -52,8 +52,8 @@ def random_number(size):
     
 
 
-ship_generator(2,4)
-ship_generator(3,0)
+ship_generator(random_number(int(input("Insert size: "))),random_number(int(input("Insert size: "))))
+#ship_generator(3,0)
 #print(my_board)
 print(my_ships)
 #print(my_guesses[0])
