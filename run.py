@@ -22,9 +22,10 @@ my_ships = []
 
 def create_board(z):
     """
-    This function generates the board of size z by z.
+    This function generates the board z number of rows and z number of columns.
     """
-    
+    [['!' for x in range(z)] for y in range(z)]
+    return 
 
 
 def guess_generator(x,y):
@@ -58,18 +59,20 @@ def random_number(size):
     
 
 
-ship_generator(random_number(int(input("Insert size: "))),random_number(int(input("Insert size: "))))
+#ship_generator(random_number(int(input("Insert size: "))),random_number(int(input("Insert size: "))))
 #ship_generator(3,0)
 #print(my_board)
-print(my_ships)
+#print(my_ships)
 #print(my_guesses[0])
 
 
 #x = random_number(4)
 #print(x)
 
-guess_generator(int(input("Insert a row: ")), int(input("Insert a column: ")))
+#guess_generator(int(input("Insert a row: ")), int(input("Insert a column: ")))
 #guess_generator(2,1)
-print(my_board)
-print(my_guesses)
+#print(my_board)
+#print(my_guesses)
 
+#create_board(3)
+print(create_board(3))
