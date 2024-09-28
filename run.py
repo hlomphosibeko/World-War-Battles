@@ -76,3 +76,52 @@ def random_number(size):
 
 #create_board(3)
 print(create_board(3))
+
+
+myfloat = 1.445
+myint = 3
+mylist = ['apple', 'banana', 'cherry']
+mydict = {'name': 'Hlompho'}
+mytuple = (3,5)
+string = "Hi"
+myset = {3, 5, (4,6)}
+
+def greeting():
+    print("Hello!")
+    return "Hello"
+
+
+def person(age):
+    if age < 15:
+        print("You are are still a child")
+        return "You are are still a child"
+    elif age <= 18:
+        print("You are almost there1")
+        return "You are almost there1"
+    else:
+        print("Let's go party")
+        return "Let's go party"
+
+
+def weekdays():
+    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']
+    for x in days:
+       print(x)
+    return 
+
+weekdays()
+
+class TheBoards:
+    """
+    It will set the board size, insert ships, 
+    """
+    def __init__(self, size, num_of_ships, player_name, game_type):
+        self.size = size
+        self.num_of_ships = num_of_ships
+        self.player_name = player_name
+        self.game_type = game_type
+
+
+    def print(self):
+        for x in self.TheBoards:
+            print("".join(x))
