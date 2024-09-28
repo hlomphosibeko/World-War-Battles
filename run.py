@@ -20,6 +20,12 @@ my_guesses = []
 my_ships = []
 #my_guesses.append((0, 0))
 
+def create_board(z):
+    """
+    This function generates the board of size z by z.
+    """
+    
+
 
 def guess_generator(x,y):
     """
