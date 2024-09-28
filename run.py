@@ -1,11 +1,12 @@
 #Legends
-# 'X' marks player guesses
+# 'X' marks a HIT
 # '&' marks my ships position
 # '!' as placeholders
+#'-' marks a MISSED
 
 from random import randint
 
-my_board = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
+my_board = [['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!']]
 #my_list[0][4] = 'a'
 #print(my_list)
 
@@ -24,9 +25,16 @@ def guess_generator(x,y):
     """
     This function inserts 'X' inside the board on coordinates x and y. It creates a tuple containing x and y, and appends it to the my_guesses list.
     """
-    my_board[x][y] = 'X'
-    my_guesses.append((x,y))    
-    return 
+    my_guesses.append((x,y)) 
+    if (x,y) in my_ships:
+        my_board[x][y] = 'X'
+        print("Hit")
+        return "Hit"
+    else:
+        print("Missed")
+        my_board[x][y] = '-'
+        return "Missed"
+    
 
 def ship_generator(x,y):
     """
@@ -37,22 +45,25 @@ def ship_generator(x,y):
     return
 
 def random_number(size):
+    """
+    This function generates a random number between 0 and size.
+    """
     return randint(0,size)
     
 
 
+ship_generator(2,4)
+ship_generator(3,0)
+#print(my_board)
+print(my_ships)
+#print(my_guesses[0])
 
 
+#x = random_number(4)
+#print(x)
 
-x = random_number(4)
-print(x)
-
-guess_generator(1,4)
-guess_generator(2,1)
+guess_generator(0,1)
+#guess_generator(2,1)
 print(my_board)
 print(my_guesses)
 
-ship_generator(0,2)
-ship_generator(3,0)
-print(my_board)
-print(my_ships)
