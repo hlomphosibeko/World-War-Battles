@@ -16,6 +16,9 @@ my_ships = []
 
 
 def guess_generator(x,y):
+    """
+    This function inserts 'X' inside the board on coordinates x and y. It creates a tuple containing x and y, and appends it to the my_guesses list.
+    """
     my_board[x][y] = 'X'
     my_guesses.append((x,y))    
     return 
