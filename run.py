@@ -1,3 +1,8 @@
+#Legends
+# 'X' marks player guesses
+# '&' marks my ships position
+# '!' as placeholders
+
 from random import randint
 
 my_board = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
@@ -24,6 +29,9 @@ def guess_generator(x,y):
     return 
 
 def ship_generator(x,y):
+    """
+    This function inserts '&' as a ship inside the board on coordinates x and y. It creates a tuple containing x and y and appends it to the my_ships list.
+    """
     my_board[x][y] = '&'
     my_ships.append((x,y))    
     return
