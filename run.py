@@ -58,20 +58,23 @@ class TheBoards:
 
 
 def run_game():
-    
-    
     print("."*35)
     print("This Is Your Board Game")
     player_name = input("Please insert your name: \n")
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
     my_size = int(input("Please insert board size: "))
-    my_num_of_ships = my_size
-    ndalo_board = TheBoards(my_size,my_num_of_ships,'Ndalo','Ndalo')
-    ndalo_board.ship_generator(ndalo_board.random_number(my_num_of_ships),ndalo_board.random_number(my_num_of_ships))
-    #ndalo_board.guess_generator(int(input("Please insert a row number of where ship is located: ")), int(input("Please insert a column number of where ship is located: ")))
+    for x in range(my_size):
+        my_num_of_ships = my_size
+        ndalo_board = TheBoards(my_size,my_num_of_ships,'Ndalo','Ndalo')
+        ndalo_board.ship_generator(ndalo_board.random_number(my_num_of_ships),ndalo_board.random_number(my_num_of_ships))
+        ndalo_board.guess_generator(int(input("Please insert a row number of where ship is located: ")), int(input("Please insert a column number of where ship is located: ")))
+        print("."*35)
+        ndalo_board.print()
+
     print("."*35)
-    ndalo_board.print()
+    print("."*35)
+    print("You have used all your turns.")
 
 run_game()  
 
