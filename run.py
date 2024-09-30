@@ -6,7 +6,58 @@
 
 from random import randint
 
-my_board = [['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!']]
+class TheBoards:
+    """
+    It will set the board size, insert ships, 
+    """
+    def __init__(self, size, num_of_ships, player_name, game_type):
+        self.size = size
+        self.num_of_ships = num_of_ships
+        self.player_name = player_name
+        self.game_type = game_type
+        self.TheBoards = [['!' for x in range(size)] for y in range(size)]
+        self.my_guesses = []
+        self.my_ships = []
+
+
+    def print(self):
+        for x in self.TheBoards:
+            print("".join(x))
+
+    
+    def guess_generator(self,x,y):
+        """
+        This function inserts 'X' inside the board on coordinates x and y. It creates a tuple containing x and y, and appends it to the my_guesses list.
+        """
+    
+        my_guesses.append((x,y)) 
+        if (x,y) in my_ships:
+            my_board[x][y] = 'X'
+            print("Hit")
+            return "Hit"
+        else:
+            print("Missed")
+            my_board[x][y] = '-'
+            return "Missed"
+
+
+    def ship_generator(x,y):
+        """
+        This function inserts '&' as a ship inside the board on coordinates x and y. It creates a tuple containing x and y and appends it to the my_ships list.
+        """
+        my_board[x][y] = '&'
+        my_ships.append((x,y))    
+        return
+
+
+    def random_number(size):
+        """
+        This function generates a random number between 0 and size.
+        """
+        return randint(0,size)
+    
+
+#my_board = [['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!']]
 #my_list[0][4] = 'a'
 #print(my_list)
 
@@ -16,19 +67,19 @@ my_board = [['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!'],['
 #my_list[4][4] = 'X'
 #print(my_list)
 
-my_guesses = []
-my_ships = []
+#my_guesses = []
+#my_ships = []
 #my_guesses.append((0, 0))
 
-def create_board(z):
+#def create_board(z):
     """
     This function generates the board z number of rows and z number of columns.
     """
-    [['!' for x in range(z)] for y in range(z)]
-    return 
+   # [['!' for x in range(z)] for y in range(z)]
+    #return 
 
 
-def guess_generator(x,y):
+"""def guess_generator(x,y):
     """
     This function inserts 'X' inside the board on coordinates x and y. It creates a tuple containing x and y, and appends it to the my_guesses list.
     """
@@ -40,22 +91,22 @@ def guess_generator(x,y):
     else:
         print("Missed")
         my_board[x][y] = '-'
-        return "Missed"
+        return "Missed" """
     
 
-def ship_generator(x,y):
+"""def ship_generator(x,y):
     """
     This function inserts '&' as a ship inside the board on coordinates x and y. It creates a tuple containing x and y and appends it to the my_ships list.
     """
     my_board[x][y] = '&'
     my_ships.append((x,y))    
-    return
+    return """
 
-def random_number(size):
+"""def random_number(size):
     """
     This function generates a random number between 0 and size.
     """
-    return randint(0,size)
+    return randint(0,size)"""
     
 
 
@@ -78,50 +129,5 @@ def random_number(size):
 print(create_board(3))
 
 
-myfloat = 1.445
-myint = 3
-mylist = ['apple', 'banana', 'cherry']
-mydict = {'name': 'Hlompho'}
-mytuple = (3,5)
-string = "Hi"
-myset = {3, 5, (4,6)}
-
-def greeting():
-    print("Hello!")
-    return "Hello"
 
 
-def person(age):
-    if age < 15:
-        print("You are are still a child")
-        return "You are are still a child"
-    elif age <= 18:
-        print("You are almost there1")
-        return "You are almost there1"
-    else:
-        print("Let's go party")
-        return "Let's go party"
-
-
-def weekdays():
-    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']
-    for x in days:
-       print(x)
-    return 
-
-weekdays()
-
-class TheBoards:
-    """
-    It will set the board size, insert ships, 
-    """
-    def __init__(self, size, num_of_ships, player_name, game_type):
-        self.size = size
-        self.num_of_ships = num_of_ships
-        self.player_name = player_name
-        self.game_type = game_type
-
-
-    def print(self):
-        for x in self.TheBoards:
-            print("".join(x))
