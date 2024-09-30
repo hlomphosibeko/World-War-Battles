@@ -5,7 +5,7 @@
 #'-' marks a MISSED
 
 from random import randint
-
+scores = {"computer": 0, "player1": 0}
 class TheBoards:
     """
     It will set the board size, insert ships, 
@@ -59,14 +59,13 @@ class TheBoards:
 
 def run_game():
     
-
+    
     print("."*35)
     print("This Is Your Board Game")
-    name = input("Please insert your name: \n")
+    player_name = input("Please insert your name: \n")
     print(f"Hello {name}, Welcome to World War Battles!!")
-    print(f"Board size is: ")
     print("."*35)
-    #ndalo_board = TheBoards(8,5,'Ndalo','Ndalo')
+    ndalo_board = TheBoards(8,5,'Ndalo','Ndalo')
     ndalo_board.ship_generator(ndalo_board.random_number(int(input("Insert row size: "))),ndalo_board.random_number(int(input("Insert column size: "))))
     ndalo_board.guess_generator(int(input("Insert a row number: ")), int(input("Insert a column number: ")))
     ndalo_board.print()
