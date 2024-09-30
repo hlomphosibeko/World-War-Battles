@@ -29,7 +29,8 @@ class TheBoards:
         """
         This function inserts 'X' inside the board on coordinates x and y. It creates a tuple containing x and y, and appends it to the my_guesses list.
         """
-        self.my_guesses.append((x,y)) 
+        self.my_guesses.append((x,y))
+
         if (x,y) in self.my_ships:
             self.my_board[x][y] = 'X'
             print("Hit")
@@ -57,13 +58,21 @@ class TheBoards:
 
 
 def run_game():
+    
+
+    print("."*35)
+    print("This Is Your Board Game")
     name = input("Please insert your name: \n")
     print(f"Hello {name}, Welcome to World War Battles!!")
-    ndalo_board = TheBoards(8,5,'Ndalo','Ndalo')
-    ndalo_board.ship_generator(ndalo_board.random_number(int(input("Insert size: "))),ndalo_board.random_number(int(input("Insert size: "))))
+    print(f"Board size is: ")
+    print("."*35)
+    #ndalo_board = TheBoards(8,5,'Ndalo','Ndalo')
+    ndalo_board.ship_generator(ndalo_board.random_number(int(input("Insert row size: "))),ndalo_board.random_number(int(input("Insert column size: "))))
+    ndalo_board.guess_generator(int(input("Insert a row number: ")), int(input("Insert a column number: ")))
+    ndalo_board.print()
 
 run_game()  
-#TheBoards.print(TheBoards(8,5,'Hlompho','Hlompho'))
+# TheBoards.print(TheBoards(8,5,'Hlompho','Hlompho'))
 #ndalo_board = TheBoards(8,5,'Ndalo','Ndalo')
 #ndalo_board.guess_generator(2,2)
 #ndalo_board.print()
