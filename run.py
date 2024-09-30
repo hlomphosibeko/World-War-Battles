@@ -54,7 +54,7 @@ class TheBoards:
         """
         This function generates a random number between 0 and size.
         """
-        return randint(0,size)
+        return randint(0,size-1)
 
 
 def run_game():
@@ -65,8 +65,10 @@ def run_game():
     player_name = input("Please insert your name: \n")
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
-    ndalo_board = TheBoards(int(input("Please insert board size: ")),5,'Ndalo','Ndalo')
-    #ndalo_board.ship_generator(ndalo_board.random_number(int(input("Please insert row size of the board: "))),ndalo_board.random_number(int(input("Please insert column size of the board: "))))
+    my_size = int(input("Please insert board size: "))
+    my_num_of_ships = my_size
+    ndalo_board = TheBoards(my_size,my_num_of_ships,'Ndalo','Ndalo')
+    ndalo_board.ship_generator(ndalo_board.random_number(my_num_of_ships),ndalo_board.random_number(my_num_of_ships))
     #ndalo_board.guess_generator(int(input("Please insert a row number of where ship is located: ")), int(input("Please insert a column number of where ship is located: ")))
     print("."*35)
     ndalo_board.print()
