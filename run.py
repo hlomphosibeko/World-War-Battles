@@ -67,17 +67,23 @@ def run_game():
     for x in range(my_size):
         my_num_of_ships = my_size
         ndalo_board = TheBoards(my_size,my_num_of_ships,'Ndalo','Ndalo')
-        ndalo_board.ship_generator(ndalo_board.random_number(my_num_of_ships),ndalo_board.random_number(my_num_of_ships))
-        ndalo_board.guess_generator(int(input("Please insert a row number of where ship is located: ")), int(input("Please insert a column number of where ship is located: ")))
-        print("."*35)
         print(f"{player_name}'s Board")
         ndalo_board.print()
+        ndalo_board.ship_generator(ndalo_board.random_number(my_num_of_ships),ndalo_board.random_number(my_num_of_ships))
+        ndalo_board.guess_generator(int(input("Please insert a row number of where ship is located: ")), int(input("Please insert a column number of where ship is located: ")))
+        
+        ndalo_board.print()
+        print("."*35)
+        print("Computer Board")
         computer_board = TheBoards(my_size,my_num_of_ships,'Computer','Computer')
         computer_board.ship_generator(computer_board.random_number(my_num_of_ships),computer_board.random_number(my_num_of_ships))
         computer_board.guess_generator(computer_board.random_number(my_num_of_ships),computer_board.random_number(my_num_of_ships))
-        print("."*35)
-        print("Computer Board")
+        
+        
         computer_board.print()
+        print("."*35)
+        print("."*35)
+        print("<<<<<----- This is the next round.----->>>>>")
     print("."*35)
     print("."*35)
     print("You have used all your turns.")
