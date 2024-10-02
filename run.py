@@ -17,13 +17,13 @@ class Board:
         self.num_of_ships = num_of_ships
         self.player_name = player_name
         self.game_type = game_type
-        self.my_board = [['!' for x in range(size)] for y in range(size)]
+        self.player_board = [['!' for x in range(size)] for y in range(size)]
         self.my_guesses = []
         self.my_ships = []
 
 
     def print(self):
-        for x in self.my_board:
+        for x in self.player_board: 
             print("   ".join(x))
 
     
@@ -36,12 +36,12 @@ class Board:
         self.my_guesses.append((x,y))
 
         if (x,y) in self.my_ships:
-            self.my_board[x][y] = 'X'
+            self.player_board[x][y] = 'X'
             print("Congratulations, you hit the ship!!")
             return "Hit"
         else:
             print("You unfortunately missed the ship!")
-            self.my_board[x][y] = '-'
+            self.player_board[x][y] = '-'
             return "Missed"
 
 
@@ -51,7 +51,7 @@ class Board:
         coordinates x and y. It creates a tuple containing x and
         y and appends it to the my_ships list.
         """
-        self.my_board[x][y] = '&'
+        self.player_board[x][y] = '&'
         self.my_ships.append((x,y))    
         return
 
