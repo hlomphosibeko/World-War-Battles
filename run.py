@@ -1,7 +1,7 @@
 #Legends
 # 'X' marks a HIT
 # '&' marks my ships position
-# '!' as placeholders
+# 'O' as placeholders
 #'-' marks a MISSED
 
 from random import randint
@@ -17,14 +17,14 @@ class Board:
         self.num_of_ships = num_of_ships
         self.player_name = player_name
         self.game_type = game_type
-        self.player_board = [['!' for x in range(size)] for y in range(size)]
+        self.player_board = [['O' for x in range(size)] for y in range(size)]
         self.my_guesses = []
         self.my_ships = []
 
 
     def print(self):
-        for x in self.player_board: 
-            print("   ".join(x))
+        for row in self.player_board: 
+            print("   ".join(row))
 
     
     def guess_generator(self,x,y):
@@ -70,21 +70,22 @@ def run_game():
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
     my_size = int(input("Please insert board size: "))
+    ndalo_board.ship_generator(ndalo_board.random_number(num_of_ships),ndalo_board.random_number(num_of_ships))
     for x in range(my_size):
         ndalo_board.print()
-        my_num_of_ships = my_size
-        ndalo_board = TheBoards(my_size,my_num_of_ships,'Ndalo','Ndalo')
+        num_of_ships = my_size
+        ndalo_board = TheBoards(my_size,num_of_ships,'Ndalo','Ndalo')
         print(f"{player_name}'s Board")
         
-        ndalo_board.ship_generator(ndalo_board.random_number(my_num_of_ships),ndalo_board.random_number(my_num_of_ships))
+        
         ndalo_board.guess_generator(int(input("Please insert a row number of where ship is located: ")), int(input("Please insert a column number of where ship is located: ")))
         
         ndalo_board.print()
         print("."*35)
         print("Computer Board")
-        computer_board = TheBoards(my_size,my_num_of_ships,'Computer','Computer')
-        computer_board.ship_generator(computer_board.random_number(my_num_of_ships),computer_board.random_number(my_num_of_ships))
-        computer_board.guess_generator(computer_board.random_number(my_num_of_ships),computer_board.random_number(my_num_of_ships))
+        computer_board = TheBoards(my_size,num_of_ships,'Computer','Computer')
+        computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships))
+        computer_board.guess_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships))
         
         
         computer_board.print()
