@@ -6,9 +6,11 @@
 
 from random import randint
 scores = {"computer": 0, "player": 0}
-class TheBoards:
+class Board:
     """
-    It will set the board size, insert ships, 
+    It will set the board size, insert ships, prompt a player
+    to insert their name, create a board for both the player
+    and computer.
     """
     def __init__(self, size, num_of_ships, player_name, game_type):
         self.size = size
@@ -27,7 +29,9 @@ class TheBoards:
     
     def guess_generator(self,x,y):
         """
-        This function inserts 'X' inside the board on coordinates x and y. It creates a tuple containing x and y, and appends it to the my_guesses list.
+        This function inserts 'X' inside the board on coordinates
+        x and y. It creates a tuple containing x and y, and appends
+        it to the my_guesses list.
         """
         self.my_guesses.append((x,y))
 
@@ -43,7 +47,9 @@ class TheBoards:
 
     def ship_generator(self,x,y):
         """
-        This function inserts '&' as a ship inside the board on coordinates x and y. It creates a tuple containing x and y and appends it to the my_ships list.
+        This function inserts '&' as a ship inside the board on
+        coordinates x and y. It creates a tuple containing x and
+        y and appends it to the my_ships list.
         """
         self.my_board[x][y] = '&'
         self.my_ships.append((x,y))    
@@ -65,10 +71,11 @@ def run_game():
     print("."*35)
     my_size = int(input("Please insert board size: "))
     for x in range(my_size):
+        ndalo_board.print()
         my_num_of_ships = my_size
         ndalo_board = TheBoards(my_size,my_num_of_ships,'Ndalo','Ndalo')
         print(f"{player_name}'s Board")
-        ndalo_board.print()
+        
         ndalo_board.ship_generator(ndalo_board.random_number(my_num_of_ships),ndalo_board.random_number(my_num_of_ships))
         ndalo_board.guess_generator(int(input("Please insert a row number of where ship is located: ")), int(input("Please insert a column number of where ship is located: ")))
         
