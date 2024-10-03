@@ -45,15 +45,18 @@ class Board:
             return "Missed"
 
 
-    def ship_generator(self,x,y):
+    def ship_generator(self,x,y,player_name):
         """
         This function inserts '&' as a ship inside the board on
         coordinates x and y. It creates a tuple containing x and
         y and appends it to the my_ships list.
         """
-        self.player_board[x][y] = '&'
-        self.my_ships.append((x,y))    
-        return
+        if player_name == 'Computer':
+            return self.my_ships.append((x,y)) 
+        else:
+            self.player_board[x][y] = '&'
+            self.my_ships.append((x,y))    
+            return
 
 
     def random_number(self,size):
@@ -92,7 +95,7 @@ def run_game():
         print("."*35)
         print("Computer Board")
        
-        computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships))
+        computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
         
         computer_board.guess_generator(int(input("Please insert a row number of where ship is located: ")),int(input("Please insert a column number of where ship is located: ")))
         
@@ -102,7 +105,7 @@ def run_game():
         print(f"{player_name}'s Board")
         
         
-        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships))
+        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), 'Hlompho' )
         
         hlompho_board.guess_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships))
         
