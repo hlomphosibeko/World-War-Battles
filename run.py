@@ -5,7 +5,8 @@
 #'-' marks a MISSED
 
 from random import randint
-scores = {"computer": 0, "player": 0}
+scores = {"Computer": 0, "Player": 0}
+
 class Board:
     """
     It will set the board size, insert ships, prompt a player
@@ -27,7 +28,7 @@ class Board:
             print("   ".join(row))
 
     
-    def guess_generator(self,x,y):
+    def guess_generator(self,x,y,player_name):
         """
         This function inserts 'X' inside the board on coordinates
         x and y. It creates a tuple containing x and y, and appends
@@ -37,10 +38,11 @@ class Board:
 
         if (x,y) in self.my_ships:
             self.player_board[x][y] = 'X'
-            print("Congratulations, you hit the ship!!")
+            print(f"{player_name} hit the ship!!")
+            scores[player_name] += 1
             return "Hit"
         else:
-            print("You unfortunately missed the ship!")
+            print(f"{player_name} unfortunately missed the ship!")
             self.player_board[x][y] = '-'
             return "Missed"
 
@@ -87,7 +89,7 @@ def run_game():
     print("."*35)
     print("."*35)
     print("<<<<<----- First round.----->>>>>")
-    
+    print(f"score on this round: Computer: {scores['Computer']} || {player_name}: {scores['Player']}")
     print("."*35)
     for x in range(my_size):
         
@@ -97,7 +99,7 @@ def run_game():
        
         computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
         
-        computer_board.guess_generator(int(input("Please insert a row number of where ship is located: ")),int(input("Please insert a column number of where ship is located: ")))
+        computer_board.guess_generator(int(input("Please insert a row number of where ship is located: ")),int(input("Please insert a column number of where ship is located: ")), 'Player')
         
         
         computer_board.print()
@@ -105,13 +107,14 @@ def run_game():
         print(f"{player_name}'s Board")
         
         
-        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), 'Hlompho' )
+        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
         
-        hlompho_board.guess_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships))
+        hlompho_board.guess_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships), 'Computer')
         
         hlompho_board.print()
         print("."*35)
-        print("<<<<<----- This is the next round.----->>>>>")
+        print(f"Score on this round: Computer: {scores['Computer']} || {player_name}: {scores['Player']}")
+        
     print("."*35)
     print("."*35)
     print("You have used all your turns.")
