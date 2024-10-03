@@ -64,26 +64,31 @@ class Board:
 
 
 def run_game():
+    """
+    This function runs game.
+    """
     print("."*35)
-    print("This Is Your Board Game")
+    print("This Is World War Battles")
     player_name = input("Please insert your name: \n")
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
     my_size = int(input("Please insert board size: "))
-    ndalo_board.ship_generator(ndalo_board.random_number(num_of_ships),ndalo_board.random_number(num_of_ships))
+    num_of_ships = my_size
+    ndalo_board = Board(my_size,num_of_ships,'Ndalo','Ndalo')
     for x in range(my_size):
-        ndalo_board.print()
-        num_of_ships = my_size
-        ndalo_board = TheBoards(my_size,num_of_ships,'Ndalo','Ndalo')
+        
+        
         print(f"{player_name}'s Board")
         
+        ndalo_board.print()
+        ndalo_board.ship_generator(ndalo_board.random_number(num_of_ships),ndalo_board.random_number(num_of_ships))
         
         ndalo_board.guess_generator(int(input("Please insert a row number of where ship is located: ")), int(input("Please insert a column number of where ship is located: ")))
         
         ndalo_board.print()
         print("."*35)
         print("Computer Board")
-        computer_board = TheBoards(my_size,num_of_ships,'Computer','Computer')
+        computer_board = Board(my_size,num_of_ships,'Computer','Computer')
         computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships))
         computer_board.guess_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships))
         
