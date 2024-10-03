@@ -74,27 +74,39 @@ def run_game():
     print("."*35)
     my_size = int(input("Please insert board size: "))
     num_of_ships = my_size
-    ndalo_board = Board(my_size,num_of_ships,'Ndalo','Ndalo')
+    hlompho_board = Board(my_size,num_of_ships,'Hlompho','Hlompho')
+    print("Hlompho's initial board.")
+    hlompho_board.print()
+    print("."*35)
+    print("Computer's initial board")
+    computer_board = Board(my_size,num_of_ships,'Computer','Computer')
+    computer_board.print()
+    print("."*35)
+    print("."*35)
+    print("<<<<<----- First round.----->>>>>")
+    
+    print("."*35)
     for x in range(my_size):
         
         
-        print(f"{player_name}'s Board")
-        
-        ndalo_board.print()
-        ndalo_board.ship_generator(ndalo_board.random_number(num_of_ships),ndalo_board.random_number(num_of_ships))
-        
-        ndalo_board.guess_generator(int(input("Please insert a row number of where ship is located: ")), int(input("Please insert a column number of where ship is located: ")))
-        
-        ndalo_board.print()
         print("."*35)
         print("Computer Board")
-        computer_board = Board(my_size,num_of_ships,'Computer','Computer')
+       
         computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships))
-        computer_board.guess_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships))
+        
+        computer_board.guess_generator(int(input("Please insert a row number of where ship is located: ")),int(input("Please insert a column number of where ship is located: ")))
         
         
         computer_board.print()
         print("."*35)
+        print(f"{player_name}'s Board")
+        
+        
+        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships))
+        
+        hlompho_board.guess_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships))
+        
+        hlompho_board.print()
         print("."*35)
         print("<<<<<----- This is the next round.----->>>>>")
     print("."*35)
