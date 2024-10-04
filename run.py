@@ -80,11 +80,16 @@ def run_game():
     my_size = int(input("Please insert board size: "))
     num_of_ships = my_size
     hlompho_board = Board(my_size,num_of_ships,'Hlompho','Hlompho')
+    computer_board = Board(my_size,num_of_ships,'Computer','Computer')
+    for x in range(my_size):
+        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
+        computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
+
     print("Hlompho's initial board.")
     hlompho_board.print()
     print("."*35)
     print("Computer's initial board")
-    computer_board = Board(my_size,num_of_ships,'Computer','Computer')
+    
     computer_board.print()
     print("."*35)
     print("."*35)
@@ -94,12 +99,12 @@ def run_game():
     for x in range(my_size):
         print("."*35)
         print("Computer Board")
-        computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
+        #computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
         computer_board.guess_generator(int(input("Please insert a row number of where ship is located: ")),int(input("Please insert a column number of where ship is located: ")), 'Player')
         computer_board.print()
         print("."*35)
         print(f"{player_name}'s Board")
-        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
+        #hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
         hlompho_board.guess_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships), 'Computer')
         hlompho_board.print()
         print("."*35)
