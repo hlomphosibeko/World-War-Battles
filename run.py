@@ -92,25 +92,15 @@ def run_game():
     print(f"score on this round: Computer: {scores['Computer']} || {player_name}: {scores['Player']}")
     print("."*35)
     for x in range(my_size):
-        
-        
         print("."*35)
         print("Computer Board")
-       
         computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
-        
         computer_board.guess_generator(int(input("Please insert a row number of where ship is located: ")),int(input("Please insert a column number of where ship is located: ")), 'Player')
-        
-        
         computer_board.print()
         print("."*35)
         print(f"{player_name}'s Board")
-        
-        
         hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
-        
         hlompho_board.guess_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships), 'Computer')
-        
         hlompho_board.print()
         print("."*35)
         print(f"Score on this round: Computer: {scores['Computer']} || {player_name}: {scores['Player']}")
@@ -121,7 +111,7 @@ def run_game():
 
 run_game()  
 
-#def battles(computer_board):
+
     
 
 
