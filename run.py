@@ -67,6 +67,33 @@ class Board:
         """
         return randint(0,size-1)
 
+def valid_name(x):
+    """
+    This function checks if the name inserted is a valid one.
+    """
+    while True:
+        try:
+            if type(x) != str:
+                raise ValueError(f"Sorry, {x} is not a proprt name. Please add add a valid name")
+                return x
+        except ValueError as e:
+            print(f"You unfortunately entered {e} which is not a valid name. Please enter a valid name.")
+            return False
+        return True
+
+
+def valid_number(x):
+    """
+    This function checks if the number inserted is a valid one.
+    """
+    while True:
+        try:
+            x = int(input("Please insert board size: "))
+            return x
+        except ValueError as x:
+            print(f"You unfortunately entered {x} which is not a valid number. Please enter a valid number.")
+            
+        
 
 def run_game():
     """
@@ -75,9 +102,13 @@ def run_game():
     print("."*35)
     print("This Is World War Battles")
     player_name = input("Please insert your name: \n")
+    #x = input("Please insert your name: \n")
+    #player_name = valid_name(x)
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
-    my_size = int(input("Please insert board size: "))
+    s = None
+    my_size = valid_number(s)
+    
     num_of_ships = my_size
     hlompho_board = Board(my_size,num_of_ships,'Hlompho','Hlompho')
     computer_board = Board(my_size,num_of_ships,'Computer','Computer')
