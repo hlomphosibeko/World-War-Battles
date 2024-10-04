@@ -16,8 +16,20 @@ The game uses Legends which help a player know when a hit or miss takes place. A
 The player as well as the computer take turns in guessing where the ship of the other is located in order to win. Once an oponent makes a correct guess, then they win. 
 
 ## Features
+### Existing Features
+    
+    - Player's and computer's initial structure of the board.
+        * A player will insert their their name as well as their desired 
+        board size.
+        * No guesses take place on this section
 
+![alt text](image-8.png)  
 
+    - A player will be prompted to guess the computer's ship location by inserting coordinates of the location.
+    - The computer will guess the locataion of the Player's ship.
+    - Ships will be invisible 
+
+![alt text](image-9.png)    
 ## Testing
 * I have manually tested my code using PEP8 Python Validator.
 * The results given: too many blank line, my code has many missing spaces after the ',' especially inside parenthesis's, and some lines are too long.
@@ -34,6 +46,8 @@ The player as well as the computer take turns in guessing where the ship of the 
 ![alt text](image-4.png)
 
 ![alt text](image-5.png)
+
+![alt text](image-6.png)
 
 ## Deployment
 This project was deployed using Code Insitutte's mock terminal for Heroku.
