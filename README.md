@@ -21,8 +21,19 @@ The player as well as the computer take turns in guessing where the ship of the 
     - A player will insert their their name as well as their desired board size.
     - No guesses take place on this section
 
-
 ![alt text](image-8.png) 
+
+- This is the initial board. This is where a player sees where their ships are located. 
+
+![Initial board](image-10.png)
+
+- This feature checks if the a valid number has been inserted or not.
+
+![Number validation](image-11.png)
+
+- When everything has been added accordingly, the game will continue running.
+
+![Running game](image-12.png)
 
 - A player will be prompted to guess the computer's ship location by inserting coordinates of the location.
 - The computer will guess the locataion of the Player's ship.
@@ -30,6 +41,9 @@ The player as well as the computer take turns in guessing where the ship of the 
 
 ![alt text](image-9.png)
 
+- When the game ends, or player turns are over, the below message with appear:
+
+![End game](image-13.png)
 
 ## Testing
 * I have manually tested my code using PEP8 Python Validator.
@@ -45,7 +59,9 @@ A board could not be created as it was not defined properly. It was not set prop
 
 ![alt text](image-3.png)
 
-![alt text](image-4.png)
+In order to check if the game is running, I had used a list as seen on the below screen shot to tell if the ships have been hit or not. I used ‘!’ exclamation marks as placeholders, however my Mentor advised I use a different legend for good user experience. Please see below for previous matrix:
+
+![Old matrix](image-4.png)
 
 ![alt text](image-5.png)
 
