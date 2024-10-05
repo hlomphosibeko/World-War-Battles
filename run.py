@@ -73,7 +73,7 @@ def valid_name(x):
     """
     while True:
         try:
-            if type(x) != str:
+            if x != "":
                 raise ValueError(f"Sorry, {x} is not a proprt name. Please add add a valid name")
                 return x
         except ValueError as e:
@@ -160,8 +160,6 @@ def run_game():
     print("."*35)
     print("This Is World War Battles")
     player_name = input("Please insert your name: \n")
-    #x = input("Please insert your name: \n")
-    #player_name = valid_name(x)
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
     my_size = 5
@@ -171,12 +169,10 @@ def run_game():
     for x in range(my_size):
         hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
         computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
-
     print(f"{player_name}'s initial board.")
     hlompho_board.print()
     print("."*35)
     print("Computer's initial board")
-    
     computer_board.print()
     print("."*35)
     print("."*35)
@@ -186,19 +182,14 @@ def run_game():
     for x in range(my_size):
         print("."*35)
         print("Computer Board")
-        #computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
-        #computer_board.guess_generator(int(input("Please insert a row number of where ship is located: ")),int(input("Please insert a column number of where ship is located: ")), 'Player')
         make_guess(computer_board)
         computer_board.print()
         print("."*35)
         print(f"{player_name}'s Board")
-        #hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
-        #make_guess.guess_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships), 'Computer')
         make_guess(hlompho_board)
         hlompho_board.print()
         print("."*35)
-        print(f"Score on this round: Computer: {scores['Computer']} || {player_name}: {scores['Player']}")
-        
+        print(f"Score on this round: Computer: {scores['Computer']} || {player_name}: {scores['Player']}")   
     print("."*35)
     print("."*35)
     print("You have used all your turns.")
