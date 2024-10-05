@@ -95,25 +95,37 @@ def valid_number(x):
         except ValueError as x:
             print(f"You unfortunately entered {x} which is not a valid number. Please enter a valid number.")
             
-def valid_board_size(x):
+def valid_coordinates(x, y, board):
     """
-    This function sets a valid range of the board.
+    validate that the cordinates inputs that validates that not yet guessed.
+    Validate that they are not outside our board.
     """
-    if x < 9:
-        print(f'Number {x} is in the list')
-        return x
-    else:
-        print(f"Big boards don't look nice on other screens. Please enter number less than 9, {x} is not less 9")
-    return 
-    
-    #while True:
-    #try:
-        #x in list_range:
-            #return x
-        #break
-    #except ValueError as e:
-        #print(f"You unfortunately entered {e} which is not a valid number. Please enter a valid number.") 
-        #return False       
+    list_range = [0, 1, 2, 3, 4, 5, 6, 7]
+    try:
+        if x not in list_range:
+            raise ValueError(f"Sorry you entered invalid input {x}!")
+    except ValueError as err:
+        print(f"Invalid guess: {err}, which is outside the range, please try any of the following numbers 0, 1, 2, 3, 4, 5, 6, 7\n")
+        return False
+    try:
+        if y not in list_range:
+            raise ValueError(f"Sorry you entered invalid input {y}!")
+    except ValueError as err:
+        print(f"Invalid guess: {err}, which is outside the range, please try one of the following numbers 0, 1, 2, 3, 4, 5, 6, 7\n")
+        return False
+    try:
+        if (x, y) in board.my_guesses:
+            raise ValueError(f"Sorry you have already guessed {(x,y)}!")
+    except ValueError as err:
+        print(f"Invalid guess:{err},please try again.\n")
+        return False
+    try:
+        if type(x) is str:
+            raise ValueError(f"Sorry you have supplied a string {x}!")
+    except ValueError as err:
+        print(f"Invalid guess: {err}, please try one of the following numbers 0, 1, 2, 3, 4, 5, 6, 7\n")
+        return False
+    return True       
 
 
 def run_game():
@@ -167,57 +179,3 @@ def run_game():
     print("You have used all your turns.")
 
 run_game()  
-
-
-    
-
-
-
-
-
-
-# TheBoards.print(TheBoards(8,5,'Hlompho','Hlompho'))
-#ndalo_board = TheBoards(8,5,'Ndalo','Ndalo')
-#ndalo_board.guess_generator(2,2)
-#ndalo_board.print()
-#hlompho_board = TheBoards(8,5,'Hlompho','Hlompho')
-#hlompho_board.ship_generator(4,2)
-#hlompho_board.guess_generator(4,2)
-#hlompho_board.print()
-#b = TheBoards.ship_generator(TheBoards(8,5,'Hlompho','Hlompho'),2,5)
-#TheBoards.print(b)
-#my_board = [['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!'],['!','!','!','!','!']]
-#my_list[0][4] = 'a'
-#print(my_list)
-
-#my_list[0][4] = '*'
-#print(my_list)
-
-#my_list[4][4] = 'X'
-#print(my_list)
-
-
-#my_guesses.append((0, 0))
-
-
-#ship_generator(random_number(int(input("Insert size: "))),random_number(int(input("Insert size: "))))
-#ship_generator(3,0)
-#print(my_board)
-#print(my_ships)
-#print(my_guesses[0])
-
-
-#x = random_number(4)
-#print(x)
-
-#guess_generator(int(input("Insert a row: ")), int(input("Insert a column: ")))
-#guess_generator(2,1)
-#print(my_board)
-#print(my_guesses)
-
-#create_board(3)
-#print(create_board(3))
-
-
-
-
