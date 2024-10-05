@@ -127,6 +127,16 @@ def valid_coordinates(x, y, board):
         return False
     return True       
 
+def ismynumber(x):
+    """
+    check if input is a number
+    """
+    while True:
+        try:
+            x = int(input('Enter your number:'))
+            return x
+        except ValueError as x:
+            print(f"Sorry you have supplied: {x} Which is not a Whole Number! please try one of the following numbers 0, 1, 2, 3, 4\n")
 
 def run_game():
     """
