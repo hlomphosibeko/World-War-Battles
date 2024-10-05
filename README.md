@@ -36,6 +36,7 @@ The player as well as the computer take turns in guessing where the ship of the 
 * The results given: too many blank line, my code has many missing spaces after the ',' especially inside parenthesis's, and some lines are too long.
 
 ## Bugs
+A board could not be created as it was not defined properly. It was not set properly
 ![alt text](image.png)
 
 ![alt text](image-1.png)

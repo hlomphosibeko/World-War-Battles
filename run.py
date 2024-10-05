@@ -34,6 +34,8 @@ class Board:
         x and y. It creates a tuple containing x and y, and appends
         it to the my_guesses list.
         """
+        valid_board_size(x)
+        valid_board_size(y)
         self.my_guesses.append((x,y))
 
         if (x,y) in self.my_ships:
@@ -93,7 +95,26 @@ def valid_number(x):
         except ValueError as x:
             print(f"You unfortunately entered {x} which is not a valid number. Please enter a valid number.")
             
-        
+def valid_board_size(x):
+    """
+    This function sets a valid range of the board.
+    """
+    if x < 9:
+        print(f'Number {x} is in the list')
+        return x
+    else:
+        print(f"Big boards don't look nice on other screens. Please enter number less than 9, {x} is not less 9")
+    return 
+    
+    #while True:
+    #try:
+        #x in list_range:
+            #return x
+        #break
+    #except ValueError as e:
+        #print(f"You unfortunately entered {e} which is not a valid number. Please enter a valid number.") 
+        #return False       
+
 
 def run_game():
     """
@@ -116,7 +137,7 @@ def run_game():
         hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
         computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
 
-    print("Hlompho's initial board.")
+    print(f"{player_name}'s initial board.")
     hlompho_board.print()
     print("."*35)
     print("Computer's initial board")
