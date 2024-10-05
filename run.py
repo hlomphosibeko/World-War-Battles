@@ -34,8 +34,6 @@ class Board:
         x and y. It creates a tuple containing x and y, and appends
         it to the my_guesses list.
         """
-        valid_board_size(x)
-        valid_board_size(y)
         self.my_guesses.append((x,y))
 
         if (x,y) in self.my_ships:
@@ -127,7 +125,7 @@ def valid_coordinates(x, y, board):
         return False
     return True       
 
-def ismynumber(x):
+def valid_int(x):
     """
     check if input is a number
     """
@@ -136,7 +134,24 @@ def ismynumber(x):
             x = int(input('Enter your number:'))
             return x
         except ValueError as x:
-            print(f"Sorry you have supplied: {x} Which is not a Whole Number! please try one of the following numbers 0, 1, 2, 3, 4\n")
+            print(f"Sorry you have supplied: {x} Which is not a Whole Number! please try one of the following numbers 0, 1, 2, 3, 4, 5, 6, 7\n")
+
+def make_guess(board):
+    """
+    if it is computer guess it choses random column and a rondom column.
+    if it is a player guess then it promts the input.
+    """
+    x = None
+    y = None
+    if board.player_name == 'Player':
+        while True:
+            x = valid_int(x)
+            y = valid_int(y)
+            if (valid_coordinates(x, y, board)):
+                break
+        return board.guess_generator(x, y,board.player_name)
+    else:
+        return board.guess_generator(board.random_number(5),board.random_number(5),board.player_name)
 
 def run_game():
     """
@@ -149,12 +164,10 @@ def run_game():
     #player_name = valid_name(x)
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
-    s = None
-    my_size = valid_number(s)
-    
+    my_size = 5
     num_of_ships = my_size
-    hlompho_board = Board(my_size,num_of_ships,'Hlompho','Hlompho')
-    computer_board = Board(my_size,num_of_ships,'Computer','Computer')
+    hlompho_board = Board(my_size,num_of_ships,'Computer','Player')
+    computer_board = Board(my_size,num_of_ships,'Player','Computer')
     for x in range(my_size):
         hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
         computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
@@ -174,12 +187,14 @@ def run_game():
         print("."*35)
         print("Computer Board")
         #computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
-        computer_board.guess_generator(int(input("Please insert a row number of where ship is located: ")),int(input("Please insert a column number of where ship is located: ")), 'Player')
+        #computer_board.guess_generator(int(input("Please insert a row number of where ship is located: ")),int(input("Please insert a column number of where ship is located: ")), 'Player')
+        make_guess(computer_board)
         computer_board.print()
         print("."*35)
         print(f"{player_name}'s Board")
         #hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
-        hlompho_board.guess_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships), 'Computer')
+        #make_guess.guess_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships), 'Computer')
+        make_guess(hlompho_board)
         hlompho_board.print()
         print("."*35)
         print(f"Score on this round: Computer: {scores['Computer']} || {player_name}: {scores['Player']}")

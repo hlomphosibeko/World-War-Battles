@@ -67,6 +67,10 @@ In order to check if the game is running, I had used a list as seen on the below
 
 ![alt text](image-6.png)
 
+![invalid int](image-16.png)
+
+![Reeated guess](image-15.png)
+
 ## Deployment
 This project was deployed using Code Insitutte's mock terminal for Heroku.
 
