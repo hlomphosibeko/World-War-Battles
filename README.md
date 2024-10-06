@@ -32,27 +32,27 @@ The player as well as the computer take turns in guessing where the ship of the 
 - A player will be prompted to guess where the ships are located on the computer board.
 - The computer will automatically guess as well. Please see screen print below:
 
-![Guess the ship location](make-guess.png)
+![Guess the ship location](README.md.docs/make-guess.png)
 
 - When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
 
-![Valid number feature](image-21.png)
+![Valid number feature](README.md.docs/valid-number-feature.png)
 
 - Once a player or the computer have inserted their guesses, a message will pop up informing the player if they hit or missed the ship.
 - At the bottom of each round scores will appear. Please see below screen:
 
-![Scores](image-22.png)
+![Scores](README.md.docs/scores.png)
 
 Each game has 5 rounds.
 
 - If a player guesses the same spot repeatedly, an error will pop up.
 - The error: You have already guessed that coordinate. Please see below screen:
 
-![Repeated guess](image-23.png)
+![Repeated guess](README.md.docs/repeated-guess.png)
 
 - When a player hits the oponents ship, an 'X' will overwrite the 'O' placeholder. Please see screen below:
 
-![Hit ship](image-24.png)
+![Hit ship](README.md.docs/hit-ship.png)
 
 - Scores will increase each time a hit is made. Please see screen below:
 
