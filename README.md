@@ -74,7 +74,18 @@ Each game has 5 rounds.
 I have manually tested my code using PEP8 Python Validator.
 * The results given: too many blank line, my code has many missing spaces after the ',' especially inside parenthesis's, and some lines are too long. Please see screen below:
 
-![PEP8 results](README.md.docs/PEP8 results.png)
+![PEP8 results 1](README.md.docs/pep8-results1.png)
+
+* After fixing the long line error messages, it has now improved. 
+* Only lines that could break the code still remain. This will be fixed on future implementations.
+
+![PEP8 results 2](README.md.docs/pep8-results2.png)
+
+* Adding 2 new lines before defining the code and adding 1 line after the code has resolved most of the white space errors as shown on below screenshot:
+
+![PEP8 results 3](README.md.docs/pep8-results3.png)
+
+The rest of the trailing white spaces will be fixed on future implementations.
 
 ### Bugs
 A board could not be created as it was not defined properly. It was not set properly
@@ -113,6 +124,7 @@ This project was deployed using Code Insitutte's mock terminal for Heroku.
 * For a better understanding of creating a Battleships game [Knowledge Mavens](https://www.google.com/search?q=how+to+make+a+simple+battleship+game+in+python&sca_esv=8c3f90bc5e947fd3&ei=eBfoZq3IDoy0hbIPvszCkQU&oq=how+to+create+battleship+game+in+python&gs_lp=Egxnd3Mtd2l6LXNlcnAiJ2hvdyB0byBjcmVhdGUgYmF0dGxlc2hpcCBnYW1lIGluIHB5dGhvbioCCAEyBhAAGBYYHjIGEAAYFhgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIESLNjUOUGWJ8VcAF4AJABAJgBlwOgAaghqgEGMy0xMC4yuAEByAEA-AEBmAICoAKuA8ICChAAGLADGNYEGEeYAwCIBgGQBgiSBwUxLjQtMaAHpTs&sclient=gws-wiz-serp#fpstate=ive&vld=cid:3353d00c,vid:tF1WRCrd_HQ,st:0)
 * Code Institute for the deployment terminal.
 * Matt Rudge's Ultimate Battleships walkthrough for the structure of the game.
-* Vusi Sibeko, former Code Institute student, with validating coordinates.
 * Roman, Tutor CI, reminded me to call my functions in order for game to run
+* Vusi Sibeko, former Code Institute student, with validating coordinates.
+* Try and Error [W3School](https://www.w3schools.com/python/python_try_except.asp)
 
