@@ -131,7 +131,7 @@ def valid_int(x):
     """
     while True:
         try:
-            x = int(input('Enter your number:'))
+            x = int(input('Insert coordinates of ship location:'))
             return x
         except ValueError as x:
             print(f"Sorry you have supplied: {x} Which is not a Whole Number! please try one of the following numbers 0, 1, 2, 3, 4, 5, 6, 7\n")
