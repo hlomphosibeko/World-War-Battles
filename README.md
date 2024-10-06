@@ -56,12 +56,12 @@ Each game has 5 rounds.
 
 - Scores will increase each time a hit is made. Please see screen below:
 
-![Increased scores](image-25.png)
+![Increased scores](README.md.docs/increasing-scores.png)
 
 - When the 5 rounds are over, a message will appear at the bottom of the screen informing a player that their rounds are done, which means the game is over.
 - The player will then have to click on the 'Run Program' button to start a new game. Please see below screen:
 
-![End of game](image-26.png)
+![End of game](README.md.docs/end-game.png)
 
 
 ### Features To Be Implemented
@@ -89,22 +89,18 @@ The rest of the trailing white spaces will be fixed on future implementations.
 
 ### Bugs
 A board could not be created as it was not defined properly. It was not set properly
-![First board](image.png)
-
-![alt text](image-1.png)
-
-![alt text](image-3.png)
+![First board](README.md.docs/first-board.png)
 
 In order to check if the game is running, I had used a list as seen on the below screen shot to tell if the ships have been hit or not. I used ‘!’ exclamation marks as placeholders, however my Mentor advised I use a different legend for good user experience. Please see below for previous matrix:
 
-![Old matrix](image-4.png)
+![Old matrix](README.md.docs/old-matrix.png)
 
 
 ### Unfixed bug
 - Player name validation.
     - When a player inserts something either than a string, the game continues. Please see screen below:
 
-![Unfixed bug](image-28.png)
+![Unfixed bug](README.md.docs/unfixed-bugs.png)
 
 ### Validator Testing
 - No errors were returned from PEP8online.com
