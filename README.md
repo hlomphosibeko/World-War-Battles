@@ -7,7 +7,7 @@ It is a single player game, where a player is playing against the computer to fi
 [Here is the live version of my project](https://world-war-battles-c242ecc67e54.herokuapp.com/)
 
 
-![Responsive screens](README.md.docs/image.png)
+![Responsive screens](README.md.docs/responsive-screen.png)
 
 ## How To Play Game
 
@@ -20,19 +20,19 @@ The player as well as the computer take turns in guessing where the ship of the 
 - When the game game starts running, a player will be prompted to insert their name. 
 - A welcome message with the player's name will appear. Please see below screen print:
 
-![Player name](image-17.png)
+![Player name](README.md.docs/player-name.png)
 - On enter, two boards will appear.
 - The player's initial board which shows where the ships are located. 
 - These ships are only visible to the player and they appear randomly.
 - The ships of the computer's initial are not visible. 
 - The game is set to create a board of 5 rows and columns. The size of the board determines how many ships will appear on each board. Please see screen print below:
 
-![Initial boards](image-19.png)
+![Initial boards](initial-boards.png)
 
 - A player will be prompted to guess where the ships are located on the computer board.
 - The computer will automatically guess as well. Please see screen print below:
 
-![Guess the ship location](image-20.png)
+![Guess the ship location](make-guess.png)
 
 - When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
 
@@ -45,7 +45,8 @@ The player as well as the computer take turns in guessing where the ship of the 
 
 Each game has 5 rounds.
 
-- If a player guesses the same spot repeatedly, an error will pop up. Please see below screen:
+- If a player guesses the same spot repeatedly, an error will pop up.
+- The error: You have already guessed that coordinate. Please see below screen:
 
 ![Repeated guess](image-23.png)
 
@@ -73,7 +74,7 @@ Each game has 5 rounds.
 I have manually tested my code using PEP8 Python Validator.
 * The results given: too many blank line, my code has many missing spaces after the ',' especially inside parenthesis's, and some lines are too long. Please see screen below:
 
-![PEP8 results](image-27.png)
+![PEP8 results](README.md.docs/PEP8 results.png)
 
 ### Bugs
 A board could not be created as it was not defined properly. It was not set properly

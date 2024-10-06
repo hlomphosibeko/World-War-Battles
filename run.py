@@ -74,10 +74,10 @@ def valid_name(x):
     while True:
         try:
             if x != "":
-                raise ValueError(f"Sorry, {x} is not a proprt name. Please add add a valid name")
+                raise ValueError(f"Sorry, {x} is not a name. Try again.")
                 return x
         except ValueError as e:
-            print(f"You unfortunately entered {e} which is not a valid name. Please enter a valid name.")
+            print(f"{e} is not a valid name. Please enter a valid name.")
             return False
         return True
 
@@ -91,7 +91,7 @@ def valid_number(x):
             x = int(input("Please insert board size: "))
             return x
         except ValueError as x:
-            print(f"You unfortunately entered {x} which is not a valid number. Please enter a valid number.")
+            print(f"{x} is not a valid number. Please enter a valid number.")
             
 def valid_coordinates(x, y, board):
     """
@@ -103,13 +103,13 @@ def valid_coordinates(x, y, board):
         if x not in list_range:
             raise ValueError(f"Sorry you entered invalid input {x}!")
     except ValueError as err:
-        print(f"Invalid guess: {err}, which is outside the range, please try any of the following numbers 0, 1, 2, 3, 4, 5, 6, 7\n")
+        print(f"{err} is not between 0 and 7")
         return False
     try:
         if y not in list_range:
             raise ValueError(f"Sorry you entered invalid input {y}!")
     except ValueError as err:
-        print(f"Invalid guess: {err}, which is outside the range, please try one of the following numbers 0, 1, 2, 3, 4, 5, 6, 7\n")
+        print(f"{err} is not between 0 and 7")
         return False
     try:
         if (x, y) in board.my_guesses:
@@ -121,7 +121,7 @@ def valid_coordinates(x, y, board):
         if type(x) is str:
             raise ValueError(f"Sorry you have supplied a string {x}!")
     except ValueError as err:
-        print(f"Invalid guess: {err}, please try one of the following numbers 0, 1, 2, 3, 4, 5, 6, 7\n")
+        print(f"{err} is not between 0 and 7")
         return False
     return True       
 
@@ -134,12 +134,12 @@ def valid_int(x):
             x = int(input('Insert coordinates of ship location:'))
             return x
         except ValueError as x:
-            print(f"Sorry you have supplied: {x} Which is not a Whole Number! please try one of the following numbers 0, 1, 2, 3, 4, 5, 6, 7\n")
+            print(f"{x} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
 
 def make_guess(board):
     """
-    if it is computer guess it choses random column and a rondom column.
-    if it is a player guess then it promts the input.
+    if it is computer guess it choses random column and a random column.
+    if it is a player guess then it prompts the input.
     """
     x = None
     y = None
@@ -151,7 +151,8 @@ def make_guess(board):
                 break
         return board.guess_generator(x, y, board.player_name)
     else:
-        return board.guess_generator(board.random_number(5), board.random_number(5), board.player_name)
+        return board.guess_generator(board.random_number(5),
+        board.random_number(5), board.player_name)
 
 def run_game():
     """
@@ -177,7 +178,8 @@ def run_game():
     print("."*35)
     print("."*35)
     print("<<<<<----- First round.----->>>>>")
-    print(f"score on this round: Computer: {scores['Computer']} || {player_name}: {scores['Player']}")
+    print("Updated scores: \n")
+    print(f"Computer: {scores['Computer']} {player_name}: {scores['Player']}")
     print("."*35)
     for x in range(my_size):
         print("."*35)
@@ -189,7 +191,8 @@ def run_game():
         make_guess(hlompho_board)
         hlompho_board.print()
         print("."*35)
-        print(f"Score on this round: Computer: {scores['Computer']} || {player_name}: {scores['Player']}")   
+        print("Updated scores: \n")
+        print(f"Computer: {scores['Computer']} {player_name}: {scores['Player']}")   
     print("."*35)
     print("."*35)
     print("You have used all your turns.")
