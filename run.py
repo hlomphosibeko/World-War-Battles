@@ -28,15 +28,15 @@ class Board:
             print("   ".join(row))
 
     
-    def guess_generator(self,x,y,player_name):
+    def guess_generator(self, x, y, player_name):
         """
         This function inserts 'X' inside the board on coordinates
         x and y. It creates a tuple containing x and y, and appends
         it to the my_guesses list.
         """
-        self.my_guesses.append((x,y))
+        self.my_guesses.append((x, y))
 
-        if (x,y) in self.my_ships:
+        if (x, y) in self.my_ships:
             self.player_board[x][y] = 'X'
             print(f"{player_name} hit the ship!!")
             scores[player_name] += 1
@@ -47,25 +47,25 @@ class Board:
             return "Missed"
 
 
-    def ship_generator(self,x,y,player_name):
+    def ship_generator(self, x, y, player_name):
         """
         This function inserts '&' as a ship inside the board on
         coordinates x and y. It creates a tuple containing x and
         y and appends it to the my_ships list.
         """
         if player_name == 'Computer':
-            return self.my_ships.append((x,y)) 
+            return self.my_ships.append((x, y)) 
         else:
             self.player_board[x][y] = '&'
-            self.my_ships.append((x,y))    
+            self.my_ships.append((x, y))    
             return
 
 
-    def random_number(self,size):
+    def random_number(self, size):
         """
         This function generates a random number between 0 and size.
         """
-        return randint(0,size-1)
+        return randint(0, size-1)
 
 def valid_name(x):
     """
@@ -149,9 +149,9 @@ def make_guess(board):
             y = valid_int(y)
             if (valid_coordinates(x, y, board)):
                 break
-        return board.guess_generator(x, y,board.player_name)
+        return board.guess_generator(x, y, board.player_name)
     else:
-        return board.guess_generator(board.random_number(5),board.random_number(5),board.player_name)
+        return board.guess_generator(board.random_number(5), board.random_number(5), board.player_name)
 
 def run_game():
     """
@@ -167,8 +167,8 @@ def run_game():
     hlompho_board = Board(my_size,num_of_ships,'Computer','Player')
     computer_board = Board(my_size,num_of_ships,'Player','Computer')
     for x in range(my_size):
-        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
-        computer_board.ship_generator(computer_board.random_number(num_of_ships),computer_board.random_number(num_of_ships), 'Computer')
+        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships), hlompho_board.random_number(num_of_ships), player_name)
+        computer_board.ship_generator(computer_board.random_number(num_of_ships), computer_board.random_number(num_of_ships), 'Computer')
     print(f"{player_name}'s initial board.")
     hlompho_board.print()
     print("."*35)
@@ -193,5 +193,7 @@ def run_game():
     print("."*35)
     print("."*35)
     print("You have used all your turns.")
+    print("The game is over!!.")
 
 run_game()  
+
