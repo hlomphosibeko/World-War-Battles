@@ -11,29 +11,48 @@ It is a single player game, where a player is playing against the computer to fi
 
 ## How To Play Game
 
-The game uses Legends which help a player know when a hit or miss takes place. A `X` is used to mark a hit, so when a ship is hit, the plaaceholder will be replaced by and `X`. A `&` marks the position in whic the ship is located. `O` is used as a placeholder. The `-` is used when a player missed the ship, and that means a loss.
+The game uses Legends which help a player know when a hit or miss takes place. An `X` is used to mark a hit, so when a ship is hit, the 'O' placeholder will be replaced by an `X`. A `&` represents the ships, it marks the position in which the ship is located. `O` is used as a placeholder. The `-` is used when a player unfortunately missed the ship, and that means a loss.
 
-The player as well as the computer take turns in guessing where the ship of the other is located in order to win. Once an oponent makes a correct guess, then they win. 
+The player as well as the computer take turns in guessing where the ship of the opponent is located in order to win. Once an oponent makes a correct guess, then they win. 
 
 ## Features
 ### Existing Features
-- Player's and computer's initial structure of the board.
-    - A player will insert their their name as well as their desired board size.
-    - No guesses take place on this section
+- When the game game starts running, a player will be prompted to insert their name. 
+- A welcome message with the player's name will appear. Please see below screen print:
 
-![alt text](image-8.png) 
+![Player name](image-17.png)
+- On enter, two boards will appear.
+- The player's initial board which shows where the ships are located. 
+- These ships are only visible to the player and they appear randomly.
+- The ships of the computer's initial are not visible. 
+- The game is set to create a board of 5 rows and columns. The size of the board determines how many ships will appear on each board. Please see screen print below:
 
-- This is the initial board. This is where a player sees where their ships are located. 
+![Initial boards](image-19.png)
 
-![Initial board](image-10.png)
+- A player will be prompted to guess where the ships are located on the computer board.
+- The computer will automatically guess as well. Please see screen print below:
 
-- This feature checks if the a valid number has been inserted or not.
+![Guess the ship location](image-20.png)
 
-![Number validation](image-11.png)
+- When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
 
-- When everything has been added accordingly, the game will continue running.
+![Valid number feature](image-21.png)
 
-![Running game](image-12.png)
+- Once a player or the computer have inserted their guesses, a message will pop up informing the player if they hit or missed the ship.
+- At the bottom of each round scores will appear. Please see below screen:
+
+![Scores](image-22.png)
+
+Each game has 5 rounds.
+
+- If a player guesses the same spot repeatedly, an error will pop up. Please see below screen:
+
+![Repeated guess](image-23.png)
+
+- When the 5 rounds are over, a message will appear at the bottom of the screen informing a player that their rounds are done, which means the game is over.
+- The player will then have to click on the 'Run Program' button to start a new game. Please see below screen:
+
+
 
 - A player will be prompted to guess the computer's ship location by inserting coordinates of the location.
 - The computer will guess the locataion of the Player's ship.
