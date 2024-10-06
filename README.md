@@ -27,7 +27,7 @@ The player as well as the computer take turns in guessing where the ship of the 
 - The ships of the computer's initial are not visible. 
 - The game is set to create a board of 5 rows and columns. The size of the board determines how many ships will appear on each board. Please see screen print below:
 
-![Initial boards](initial-boards.png)
+![Initial boards](README.md.docs/initial-boards.png)
 
 - A player will be prompted to guess where the ships are located on the computer board.
 - The computer will automatically guess as well. Please see screen print below:
