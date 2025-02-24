@@ -77,6 +77,17 @@ def valid_name(name):
         return name
 
 
+def valid_size():
+    """
+    check if input is a number
+    """
+    while True:
+        try:
+            x = int(input('Insert the size the board:'))
+            return x   
+        except ValueError as err:
+            print(f"{err} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
+
 def valid_number(x):
     """
     This function checks if the number inserted is a valid one.
@@ -167,16 +178,19 @@ def start_game():
         else:
             player_name = y
             break
+    valid_name(player_name)
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
-    my_size = 5
-    num_of_ships = my_size
-    hlompho_board = Board(my_size, num_of_ships, 'Computer', 'Player')
-    computer_board = Board(my_size, num_of_ships, 'Player', 'Computer')
-    for x in range(my_size):
-        hlompho_board.ship_generator(hlompho_board.random_number(num_of_ships),hlompho_board.random_number(num_of_ships), player_name)
-        computer_board.ship_generator(computer_board.random_number(num_of_ships), computer_board.random_number(num_of_ships), 'Computer')
-    print(f"{player_name}'s initial board.")
+    size = valid_size()
+    num_ships = size-1
+    
+    my_board = Board(size, num_ships, player_name, 'Player')
+    computer_board = Board(size, num_ships, 'Computer', 'Computer')
+    
+    while len(my_board.my_ships) < size:
+        my_board.ship_gen(my_board.random_num(),my_board.random_num())
+        computer_board.ship_gen(computer_board.random_num(), computer_board.random_num())
+    print("Computer's initial board: ")
     hlompho_board.print()
     print("."*35)
     print("Computer's initial board")
