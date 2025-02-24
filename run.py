@@ -83,7 +83,7 @@ def valid_size():
     """
     while True:
         try:
-            x = int(input('Insert the size the board:'))
+            x = int(input('Insert the size of the board:'))
             return x   
         except ValueError as err:
             print(f"{err} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")

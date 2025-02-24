@@ -2,7 +2,7 @@
 
 World War Battles is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.
 
-It is a single player game, where a player is playing against the computer to find its hidden ships. All ships have to be sunk to win the game.
+It is a strategy tye guessing game, where a player is playing against the computer to find its hidden ships. All ships have to be sunk to win the game. It is a strategy type guessing game for two players. 
 
 [Here is the live version of my project](https://world-war-battles-c242ecc67e54.herokuapp.com/)
 
@@ -11,23 +11,37 @@ It is a single player game, where a player is playing against the computer to fi
 
 ## How To Play Game
 
-The game uses Legends which help a player know when a hit or miss takes place. An `X` is used to mark a hit, so when a ship is hit, the 'O' placeholder will be replaced by an `X`. A `&` represents the ships, it marks the position in which the ship is located. `O` is used as a placeholder. The `-` is used when a player unfortunately missed the ship, and that means a loss.
+The game uses four symbols in which I would call Legends as placeholders:
+    - `O` as placeholders of the board,
+    - `X` used to mark a ship that is 'Hit',
+    - `&` used to mark the player ships, and
+    - `-` used to mark the guessed spots that 'Missed' a ship.
 
-The player as well as the computer take turns in guessing where the ship of the opponent is located in order to win. Once an oponent makes a correct guess, then they win. 
+This is a single player, where a human plays with the computer. Both parties are given a chance to make their guesses as to where the oponents ships are are located on the board. A player is given an opportunity to select preferred grid size. The selected size will have the same amount of hidden ships. The number of rounds a game has is dependent on the size of the board. Both players will be graded on a score board and when the game is over, both scores will be visible.
+
+This game has no specific target market, anyone who is interested can play it. If you are interested in playing a game that is unpredictable, then you are in for a treat. ENJOY!!
 
 ## Features
 ### Existing Features
-- When the game game starts running, a player will be prompted to insert their name. 
-- A welcome message with the player's name will appear. Please see below screen print:
+#### Welcome Message
+- At the top of the screen, a player is made aware of that they are about to embark on journey of the World War Battles
+- When the game starts running, a player is prompted to insert their name 
+- A welcome message with the player's name will appear
 
 ![Player name](README.md.docs/player-name.png)
-- On enter, two boards will appear.
+
+- Immediately after that, they are now prompted to insert the desired board size. Please see below screen print:
+
+![Board_Size](README.md.docs/board-size.png)
+
+- On enter, two boards will appear with the same selected size number.
 - The player's initial board which shows where the ships are located. 
 - These ships are only visible to the player and they appear randomly.
-- The ships of the computer's initial are not visible. 
-- The game is set to create a board of 5 rows and columns. The size of the board determines how many ships will appear on each board. Please see screen print below:
+- The ships of the computer's initial board are not visible. 
+- The size of the board determines how many ships will appear on each board. Please see screen print below:
 
-![Initial boards](README.md.docs/initial-boards.png)
+![Initial_Boards](README.md.docs/initial-boards.png)
+
 
 - A player will be prompted to guess where the ships are located on the computer board.
 - The computer will automatically guess as well. Please see screen print below:
@@ -125,4 +139,5 @@ This project was deployed using Code Insitutte's mock terminal for Heroku.
 * Roman, Tutor CI, reminded me to call my functions in order for game to run
 * Vusi Sibeko, former Code Institute student, with validating coordinates.
 * Try and Error [W3School](https://www.w3schools.com/python/python_try_except.asp)
+* About Battleships game [Battleship](https://en.wikipedia.org/wiki/Battleship_(game))
 
