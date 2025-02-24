@@ -65,19 +65,16 @@ class Board:
         return randint(0, size-1)
 
 
-def valid_name(x):
+def valid_name(name):
     """
-    This function checks if the name inserted is a valid one.
+    This function checks if the name inserted is a valid name.
     """
     while True:
         try:
-            if x != "":
-                raise ValueError(f"Sorry, {x} is not a name. Try again.")
-                return x
-        except ValueError as e:
-            print(f"{e} is not a valid name. Please enter a valid name.")
-            return False
-        return True
+            name = name.encode('ascii')
+        except UnicodeError as e:
+            print(f"The name {e.object} has a character at position {e.start} that cannot be encoded in {e.encoding} due to {e.reason} '\n You may continue with the game...")
+        return name
 
 
 def valid_number(x):
