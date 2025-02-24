@@ -45,18 +45,18 @@ class Board:
             self.player_board[x][y] = '-'
             return "Missed"
 
-    def ship_generator(self, x, y, player_name):
+    def ship_gen(self, x, y):
         """
-        This function inserts '&' as a ship inside the board on
+        This function generates the ships. It inserts '&' as a ship inside the board on
         coordinates x and y. It creates a tuple containing x and
         y and appends it to the my_ships list.
         """
-        if player_name == 'Computer':
+        if self.game_type == 'Computer':
             return self.my_ships.append((x, y)) 
         else:
             self.player_board[x][y] = '&'
             self.my_ships.append((x, y))    
-            return
+        
 
     def random_number(self, size):
         """
