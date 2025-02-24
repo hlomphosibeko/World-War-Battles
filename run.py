@@ -152,13 +152,21 @@ def make_guess(board):
         return board.guess_generator(board.random_number(5), board.random_number(5), board.player_name)
 
 
-def run_game():
+def start_game():
     """
     This function runs game.
     """
     print("."*35)
     print("This Is World War Battles")
-    player_name = input("Please insert your name: \n")
+    player_name = None
+    while True:
+        y = input("Please insert your name:")
+        x = len(y)
+        if x <= 0 or y.isnumeric():
+            print(f"Sorry you entered {y} which is not a valid name. Try again...")
+        else:
+            player_name = y
+            break
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
     my_size = 5
@@ -197,5 +205,5 @@ def run_game():
     print("The game is over!!.")
 
 
-run_game()  
+start_game()  
 
