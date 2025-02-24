@@ -27,7 +27,7 @@ class Board:
         for row in self.player_board: 
             print("   ".join(row))
 
-    def guess_generator(self, x, y, player_name):
+    def guess_gen(self, x, y):
         """
         This function inserts 'X' inside the board on coordinates
         x and y. It creates a tuple containing x and y, and appends
@@ -37,11 +37,8 @@ class Board:
 
         if (x, y) in self.my_ships:
             self.player_board[x][y] = 'X'
-            print(f"{player_name} hit the ship!!")
-            scores[player_name] += 1
             return "Hit"
         else:
-            print(f"{player_name} unfortunately missed the ship!")
             self.player_board[x][y] = '-'
             return "Missed"
 
@@ -133,16 +130,28 @@ def valid_coordinates(x, y, board):
     return True       
 
 
-def valid_int(x):
+def valid_int_row(x):
     """
-    check if input is a number
+    check if row input is a number
     """
     while True:
         try:
-            x = int(input('Insert coordinates of ship location:'))
+            x = int(input('Insert row number of ship location: '))
             return x
         except ValueError as x:
             print(f"{x} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
+
+
+def valid_int_col(y):
+    """
+    check if column input is a number
+    """
+    while True:
+        try:
+            y = int(input('Insert column number of ship location:'))
+            return y
+        except ValueError as y:
+            print(f"{y} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
 
 
 def make_guess(board):
@@ -152,15 +161,15 @@ def make_guess(board):
     """
     x = None
     y = None
-    if board.player_name == 'Player':
+    if board.player_name == 'Computer':
         while True:
-            x = valid_int(x)
-            y = valid_int(y)
+            x = valid_int_row(x)
+            y = valid_int_col(y)
             if (valid_coordinates(x, y, board)):
                 break
-        return board.guess_generator(x, y, board.player_name)
+        return board.guess_gen(x, y)
     else:
-        return board.guess_generator(board.random_number(5), board.random_number(5), board.player_name)
+        return board.guess_gen(board.random_num(), board.random_num())
 
 
 def play_game(computer_board, my_board):
