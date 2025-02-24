@@ -58,11 +58,11 @@ class Board:
             self.my_ships.append((x, y))    
         
 
-    def random_number(self, size):
+    def random_num(self):
         """
         This function generates a random number between 0 and size.
         """
-        return randint(0, size-1)
+        return randint(0, self.size-1)
 
 
 def valid_name(name):
@@ -166,26 +166,42 @@ def make_guess(board):
 def play_game(computer_board, my_board):
     print("."*35)
     print("<<<<<----- First round.----->>>>>")
-    print("Updated scores: \n")
-    print(f"Computer: {scores['Computer']} {player_name}: {scores['Player']}")
-    print("."*35)
-    for x in range(my_size):
+    for x in range(my_board.size):
         print("."*35)
-        print("Computer Board")
-        make_guess(computer_board)
+        print(f"{computer_board.player_name}'s Board")
+        resc = make_guess(computer_board)
+        resi = make_guess(my_board)
+
         computer_board.print()
+        print(f"{my_board.player_name} Guessed {computer_board.my_guesses[-1]}")
+        if resc == "Hit":
+            print(f"{my_board.player_name} Bombed {computer_board.player_name}'s ship!!!!")
+            scores['Player'] += 1
+        else:
+            print(f"{my_board.player_name} Missed {computer_board.player_name}'s ship!!!!")
         print("."*35)
-        print(f"{player_name}'s Board")
-        make_guess(hlompho_board)
-        hlompho_board.print()
+        print("."*35)
+        print(f"{my_board.player_name}'s Board")
+    
+        my_board.print()
+        print(f"{computer_board.player_name} Guessed {my_board.my_guesses[-1]}")
+        if resi == "Hit":
+            print(f"{computer_board.player_name} Bombed {my_board.player_name}'s ship!!!!")
+            scores['Computer'] += 1
+        else:
+            print(f"{computer_board.player_name} Missed the {my_board.player_name}'s ship!!!!")
+        print("."*35)
         print("."*35)
         print("Updated scores: \n")
-        print(f"Computer: {scores['Computer']} {player_name}: {scores['Player']}")   
+        print(
+            f"Computer: {scores[computer_board.player_name]} {my_board.player_name}: {scores['Player']}"
+        )
+    
+    print("."*35)
     print("."*35)
     print("."*35)
     print("You have used all your turns.")
     print("The game is over!!.")
-
 
 
 def start_game():
@@ -199,7 +215,7 @@ def start_game():
         y = input("Please insert your name:")
         x = len(y)
         if x <= 0 or y.isnumeric():
-            print(f"Sorry you entered {y} which is not a valid name. Try again...")
+            print(f"Sorry you entered '{y}' which is not a valid name. Try again...")
         else:
             player_name = y
             break
