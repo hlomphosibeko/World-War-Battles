@@ -23,13 +23,15 @@ class Board:
         self.my_guesses = []
         self.my_ships = []
 
+
     def print(self):
         for row in self.player_board: 
             print("   ".join(row))
 
+
     def guess_gen(self, x, y):
         """
-        This function inserts 'X' inside the board on coordinates
+        This function generates a guess. It inserts 'X' inside the board on coordinates
         x and y. It creates a tuple containing x and y, and appends
         it to the my_guesses list.
         """
@@ -41,6 +43,7 @@ class Board:
         else:
             self.player_board[x][y] = '-'
             return "Missed"
+
 
     def ship_gen(self, x, y):
         """
@@ -85,50 +88,6 @@ def valid_size():
         except ValueError as err:
             print(f"{err} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
 
-def valid_number(x):
-    """
-    This function checks if the number inserted is a valid one.
-    """
-    while True:
-        try:
-            x = int(input("Please insert board size: "))
-            return x
-        except ValueError as x:
-            print(f"{x} is not a valid number. Please enter a valid number.")
-
-
-def valid_coordinates(x, y, board):
-    """
-    validate that the cordinates inputs that validates that not yet guessed.
-    Validate that they are not outside our board.
-    """
-    list_range = [0, 1, 2, 3, 4, 5, 6, 7]
-    try:
-        if x not in list_range:
-            raise ValueError(f"Sorry you entered invalid input {x}!")
-    except ValueError as err:
-        print(f"{err} is not between 0 and 7")
-        return False
-    try:
-        if y not in list_range:
-            raise ValueError(f"Sorry you entered invalid input {y}!")
-    except ValueError as err:
-        print(f"{err} is not between 0 and 7")
-        return False
-    try:
-        if (x, y) in board.my_guesses:
-            raise ValueError(f"Sorry you have already guessed {(x,y)}!")
-    except ValueError as err:
-        print(f"Invalid guess:{err},please try again.\n")
-        return False
-    try:
-        if type(x) is str:
-            raise ValueError(f"Sorry you have supplied a string {x}!")
-    except ValueError as err:
-        print(f"{err} is not between 0 and 7")
-        return False
-    return True       
-
 
 def valid_int_row(x):
     """
@@ -154,10 +113,37 @@ def valid_int_col(y):
             print(f"{y} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
 
 
+def valid_coordinates(x, y, board):
+    """
+    validate that the cordinates inputs that validates that not yet guessed.
+    Validate that they are not outside our board.
+    """
+    while True:
+        try:
+            if x >= board.size:
+                raise ValueError(f"Sorry you entered invalid input {x}!")
+        except ValueError as err:
+            print(f"{err} is more than board size.")
+            return False
+        try:
+            if y >= board.size:
+                raise ValueError(f"Sorry you entered invalid input {y}!")
+        except ValueError as err:
+            print(f"{err} is more than board size.")
+            return False
+        try:
+            if (x, y) in board.my_guesses:
+                raise ValueError(f"Sorry you have already guessed {(x,y)}!")
+        except ValueError as err:
+            print(f"Invalid guess:{err},please try again.\n")
+            return False
+        return True  
+
+
 def make_guess(board):
     """
     if it is computer guess it choses random column and a random column.
-    if it is a player guess then it prompts the input.
+    if it is a player guess then it prompts the input.1
     """
     x = None
     y = None
@@ -248,9 +234,4 @@ def start_game():
     print("."*35)
     play_game(computer_board, my_board)
 
-
-    
-
-
 start_game()  
-
