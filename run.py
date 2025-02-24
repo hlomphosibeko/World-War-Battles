@@ -163,6 +163,31 @@ def make_guess(board):
         return board.guess_generator(board.random_number(5), board.random_number(5), board.player_name)
 
 
+def play_game(computer_board, my_board):
+    print("."*35)
+    print("<<<<<----- First round.----->>>>>")
+    print("Updated scores: \n")
+    print(f"Computer: {scores['Computer']} {player_name}: {scores['Player']}")
+    print("."*35)
+    for x in range(my_size):
+        print("."*35)
+        print("Computer Board")
+        make_guess(computer_board)
+        computer_board.print()
+        print("."*35)
+        print(f"{player_name}'s Board")
+        make_guess(hlompho_board)
+        hlompho_board.print()
+        print("."*35)
+        print("Updated scores: \n")
+        print(f"Computer: {scores['Computer']} {player_name}: {scores['Player']}")   
+    print("."*35)
+    print("."*35)
+    print("You have used all your turns.")
+    print("The game is over!!.")
+
+
+
 def start_game():
     """
     This function runs game.
@@ -191,32 +216,15 @@ def start_game():
         my_board.ship_gen(my_board.random_num(),my_board.random_num())
         computer_board.ship_gen(computer_board.random_num(), computer_board.random_num())
     print("Computer's initial board: ")
-    hlompho_board.print()
-    print("."*35)
-    print("Computer's initial board")
     computer_board.print()
     print("."*35)
+    print(f"{player_name}'s initial board:")
+    my_board.print()
     print("."*35)
-    print("<<<<<----- First round.----->>>>>")
-    print("Updated scores: \n")
-    print(f"Computer: {scores['Computer']} {player_name}: {scores['Player']}")
-    print("."*35)
-    for x in range(my_size):
-        print("."*35)
-        print("Computer Board")
-        make_guess(computer_board)
-        computer_board.print()
-        print("."*35)
-        print(f"{player_name}'s Board")
-        make_guess(hlompho_board)
-        hlompho_board.print()
-        print("."*35)
-        print("Updated scores: \n")
-        print(f"Computer: {scores['Computer']} {player_name}: {scores['Player']}")   
-    print("."*35)
-    print("."*35)
-    print("You have used all your turns.")
-    print("The game is over!!.")
+    play_game(computer_board, my_board)
+
+
+    
 
 
 start_game()  
