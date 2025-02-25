@@ -65,79 +65,84 @@ class Board:
         return randint(0, self.size-1)
 
 
-def valid_name(name):
+class BoardMixin:
     """
-    This function checks if the name inserted is a valid name.
+    Handles the defense mechanism of the game.
     """
-    while True:
-        try:
-            name = name.encode('ascii')
-        except UnicodeError as e:
-            print(f"The name {e.object} has a character at position {e.start} that cannot be encoded in {e.encoding} due to {e.reason} '\n You may continue with the game...")
-        return name
+
+    def valid_name(name):
+        """
+        This function checks if the name inserted is a valid name.
+        """
+        while True:
+            try:
+                name = name.encode('ascii')
+            except UnicodeError as e:
+                print(f"The name {e.object} has a character at position {e.start} that cannot be encoded in {e.encoding} due to {e.reason} '\n You may continue with the game...")
+            return name
 
 
-def valid_size():
-    """
-    check if input is a number
-    """
-    while True:
-        try:
-            x = int(input('Insert the size of the board:'))
-            return x   
-        except ValueError as err:
-            print(f"{err} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
+    def valid_size():
+        """
+        check if input is a number
+        """
+        while True:
+            try:
+                x = int(input('Insert the size of the board:'))
+                return x   
+            except ValueError as err:
+                print(f"{err} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
 
 
-def valid_int_row(x):
-    """
-    check if row input is a number
-    """
-    while True:
-        try:
-            x = int(input('Insert row number of ship location: '))
-            return x
-        except ValueError as x:
-            print(f"{x} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
+    def valid_int_row(x):
+        """
+        check if row input is a number
+        """
+        while True:
+            try:
+                x = int(input('Insert row number of ship location: '))
+                return x
+            except ValueError as x:
+                print(f"{x} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
 
 
-def valid_int_col(y):
-    """
-    check if column input is a number
-    """
-    while True:
-        try:
-            y = int(input('Insert column number of ship location:'))
-            return y
-        except ValueError as y:
-            print(f"{y} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
+    def valid_int_col(y):
+        """
+        check if column input is a number
+        """
+        while True:
+            try:
+                y = int(input('Insert column number of ship location:'))
+                return y
+            except ValueError as y:
+                print(f"{y} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
 
 
-def valid_coordinates(x, y, board):
-    """
-    validate that the cordinates inputs that validates that not yet guessed.
-    Validate that they are not outside our board.
-    """
-    while True:
-        try:
-            if x >= board.size:
-                raise ValueError(f"Sorry you entered invalid input {x}!")
-        except ValueError as err:
-            print(f"{err} is more than board size.")
-            return False
-        try:
-            if y >= board.size:
-                raise ValueError(f"Sorry you entered invalid input {y}!")
-        except ValueError as err:
-            print(f"{err} is more than board size.")
-            return False
-        try:
-            if (x, y) in board.my_guesses:
-                raise ValueError(f"Sorry you have already guessed {(x,y)}!")
-        except ValueError as err:
-            print(f"Invalid guess:{err},please try again.\n")
-            return False
-        return True  
+    def valid_coordinates(x, y, board):
+        """
+        validate that the cordinates inputs that validates that not yet guessed.
+        Validate that they are not outside our board.
+        """
+        while True:
+            try:
+                if x >= board.size:
+                    raise ValueError(f"Sorry you entered invalid input {x}!")
+            except ValueError as err:
+                print(f"{err} is more than board size.")
+                return False
+            try:
+                if y >= board.size:
+                    raise ValueError(f"Sorry you entered invalid input {y}!")
+            except ValueError as err:
+                print(f"{err} is more than board size.")
+                return False
+            try:
+                if (x, y) in board.my_guesses:
+                    raise ValueError(f"Sorry you have already guessed {(x,y)}!")
+            except ValueError as err:
+                print(f"Invalid guess:{err},please try again.\n")
+                return False
+            return True  
 
 
 def make_guess(board):
