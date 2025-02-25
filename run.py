@@ -25,6 +25,9 @@ class Board:
 
 
     def print(self):
+        """
+        This function prints the board.
+        """
         for row in self.player_board: 
             print("   ".join(row))
 
@@ -63,7 +66,7 @@ class Board:
         This function generates a random number between 0 and size.
         """
         return randint(0, self.size-1)
-
+    
 
 class BoardMixin:
     """
@@ -92,6 +95,14 @@ class BoardMixin:
                 return x   
             except ValueError as err:
                 print(f"{err} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
+
+    def description():
+        """
+        This function describes what the game is about.
+        """
+        print("World War Battles is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.")
+        print("It is a strategy tye guessing game, where a player is playing against the computer to find its hidden ships.")
+        print("All ships have to be sunk to win the game. It is a strategy type guessing game for two players. ")
 
 
     def valid_int_row(x):
@@ -152,17 +163,13 @@ class SubBoard(BoardMixin, Board):
         """
         Board.__init__(self, size, num_of_ships, player_name, game_type)
 
-        def description(self):
-            """
-            This function describes what the game is about.
-            """
-            print("World War Battles is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.\n It is a strategy tye guessing game, where a player is playing against the computer to find its hidden ships.\n All ships have to be sunk to win the game. It is a strategy type guessing game for two players. ")
     
-        def wedge(self):
-            print("."*35)
-            print(" "*35)
-            print(" "*35)
-            
+    def wedge(self):
+        print("."*35)
+        print(" "*35)
+        print(" "*35)
+
+
 def make_guess(board):
     """
     if it is computer guess it choses random column and a random column.
@@ -183,13 +190,12 @@ def make_guess(board):
 
 def play_game(computer_board, my_board):
     print("."*35)
-    print("<<<<<----- First round.----->>>>>")
     for x in range(my_board.size):
+        print(f"<<<<<----- Round {x +1}.----->>>>>")
         print("."*35)
         print(f"{computer_board.player_name}'s Board")
         resc = make_guess(computer_board)
         resi = make_guess(my_board)
-
         computer_board.print()
         print(f"{my_board.player_name} Guessed {computer_board.my_guesses[-1]}")
         if resc == "Hit":
@@ -200,7 +206,6 @@ def play_game(computer_board, my_board):
         print("."*35)
         print("."*35)
         print(f"{my_board.player_name}'s Board")
-    
         my_board.print()
         print(f"{computer_board.player_name} Guessed {my_board.my_guesses[-1]}")
         if resi == "Hit":
@@ -210,11 +215,12 @@ def play_game(computer_board, my_board):
             print(f"{computer_board.player_name} Missed the {my_board.player_name}'s ship!!!!")
         print("."*35)
         print("."*35)
-        print("Updated scores: \n")
+        print(" "*35)
+        print("Updated scores: ")
         print(
             f"Computer: {scores[computer_board.player_name]} {my_board.player_name}: {scores['Player']}"
         )
-    
+        my_board.wedge()
     print("."*35)
     print("."*35)
     print("."*35)
@@ -226,8 +232,11 @@ def start_game():
     """
     This function runs game.
     """
-    print("."*35)
-    print("This Is World War Battles")
+    print("."*115)
+    print("WORLD WAR BATTLES!!")
+    BoardMixin.description()
+    print("."*115)
+    print("."*115)
     player_name = None
     while True:
         y = input("Please insert your name:")
@@ -242,10 +251,8 @@ def start_game():
     print("."*35)
     size = BoardMixin.valid_size()
     num_ships = size-1
-    
     my_board = SubBoard(size, num_ships, player_name, 'Player')
     computer_board = SubBoard(size, num_ships, 'Computer', 'Computer')
-    
     while len(my_board.my_ships) < size:
         my_board.ship_gen(my_board.random_num(),my_board.random_num())
         computer_board.ship_gen(computer_board.random_num(), computer_board.random_num())
