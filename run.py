@@ -172,9 +172,9 @@ def make_guess(board):
     y = None
     if board.player_name == 'Computer':
         while True:
-            x = valid_int_row(x)
-            y = valid_int_col(y)
-            if (valid_coordinates(x, y, board)):
+            x = BoardMixin.valid_int_row(x)
+            y = BoardMixin.valid_int_col(y)
+            if (BoardMixin.valid_coordinates(x, y, board)):
                 break
         return board.guess_gen(x, y)
     else:
@@ -237,14 +237,14 @@ def start_game():
         else:
             player_name = y
             break
-    valid_name(player_name)
+    BoardMixin.valid_name(player_name)
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     print("."*35)
-    size = valid_size()
+    size = BoardMixin.valid_size()
     num_ships = size-1
     
-    my_board = Board(size, num_ships, player_name, 'Player')
-    computer_board = Board(size, num_ships, 'Computer', 'Computer')
+    my_board = SubBoard(size, num_ships, player_name, 'Player')
+    computer_board = SubBoard(size, num_ships, 'Computer', 'Computer')
     
     while len(my_board.my_ships) < size:
         my_board.ship_gen(my_board.random_num(),my_board.random_num())
