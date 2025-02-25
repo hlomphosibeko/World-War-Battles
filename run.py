@@ -1,8 +1,8 @@
-#Legends
+# Legends
 # 'X' marks a HIT
 # '&' marks my ships position
 # 'O' as placeholders
-#'-' marks a MISSED
+# '-' marks a MISSED
 
 from random import randint
 scores = {"Computer": 0, "Player": 0}
@@ -23,18 +23,17 @@ class Board:
         self.my_guesses = []
         self.my_ships = []
 
-
     def print(self):
         """
         This function prints the board.
         """
-        for row in self.player_board: 
+        for row in self.player_board:
             print("   ".join(row))
-
 
     def guess_gen(self, x, y):
         """
-        This function generates a guess. It inserts 'X' inside the board on coordinates
+        This function generates a guess.
+        It inserts 'X' inside the board on coordinates
         x and y. It creates a tuple containing x and y, and appends
         it to the my_guesses list.
         """
@@ -47,26 +46,25 @@ class Board:
             self.player_board[x][y] = '-'
             return "Missed"
 
-
     def ship_gen(self, x, y):
         """
-        This function generates the ships. It inserts '&' as a ship inside the board on
+        This function generates the ships.
+        It inserts '&' as a ship inside the board on
         coordinates x and y. It creates a tuple containing x and
         y and appends it to the my_ships list.
         """
         if self.game_type == 'Computer':
-            return self.my_ships.append((x, y)) 
+            return self.my_ships.append((x, y))
         else:
             self.player_board[x][y] = '&'
-            self.my_ships.append((x, y))    
-        
+            self.my_ships.append((x, y))
 
     def random_num(self):
         """
         This function generates a random number between 0 and size.
         """
         return randint(0, self.size-1)
-    
+
 
 class BoardMixin:
     """
@@ -81,9 +79,9 @@ class BoardMixin:
             try:
                 name = name.encode('ascii')
             except UnicodeError as e:
-                print(f"The name {e.object} has a character at position {e.start} that cannot be encoded in {e.encoding} due to {e.reason} '\n You may continue with the game...")
+                print(
+                    f"The name {e.object} has a character at position {e.start} that cannot be encoded in {e.encoding} due to {e.reason} '\n You may continue with the game...")
             return name
-
 
     def valid_size():
         """
@@ -92,7 +90,7 @@ class BoardMixin:
         while True:
             try:
                 x = int(input('Insert the size of the board:'))
-                return x   
+                return x
             except ValueError as err:
                 print(f"{err} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
 
@@ -105,29 +103,16 @@ class BoardMixin:
         print("All ships have to be sunk to win the game.\n It is a strategy type guessing game for two players. ")
 
 
-    def valid_int_row(x):
+    def valid_int(prompt):
         """
-        check if row input is a number
+        check if row and column input is a number
         """
         while True:
             try:
-                x = int(input('Insert row number of ship location: '))
+                x = int(input(prompt))
                 return x
-            except ValueError as x:
-                print(f"{x} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
-
-
-    def valid_int_col(y):
-        """
-        check if column input is a number
-        """
-        while True:
-            try:
-                y = int(input('Insert column number of ship location:'))
-                return y
-            except ValueError as y:
-                print(f"{y} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
-
+            except ValueError:
+                print("This is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
 
     def valid_coordinates(x, y, board):
         """
@@ -175,12 +160,11 @@ def make_guess(board):
     if it is computer guess it choses random column and a random column.
     if it is a player guess then it prompts the input.1
     """
-    x = None
-    y = None
+
     if board.player_name == 'Computer':
         while True:
-            x = BoardMixin.valid_int_row(x)
-            y = BoardMixin.valid_int_col(y)
+            x = BoardMixin.valid_int('Insert row number of ship location: ')
+            y = BoardMixin.valid_int('Insert column number of ship location: ')
             if (BoardMixin.valid_coordinates(x, y, board)):
                 break
         return board.guess_gen(x, y)
