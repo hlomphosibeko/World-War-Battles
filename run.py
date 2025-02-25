@@ -100,9 +100,9 @@ class BoardMixin:
         """
         This function describes what the game is about.
         """
-        print("World War Battles is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.")
-        print("It is a strategy tye guessing game, where a player is playing against the computer to find its hidden ships.")
-        print("All ships have to be sunk to win the game. It is a strategy type guessing game for two players. ")
+        print("World War Battles is a Python terminal game,\n which runs in the Code Institute mock terminal on Heroku.")
+        print("It is a strategy tye guessing game, where a\n player is playing against the computer to find its hidden ships.")
+        print("All ships have to be sunk to win the game.\n It is a strategy type guessing game for two players. ")
 
 
     def valid_int_row(x):
