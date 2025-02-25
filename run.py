@@ -152,7 +152,17 @@ class SubBoard(BoardMixin, Board):
         """
         Board.__init__(self, size, num_of_ships, player_name, game_type)
 
-
+        def description(self):
+            """
+            This function describes what the game is about.
+            """
+            print("World War Battles is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.\n It is a strategy tye guessing game, where a player is playing against the computer to find its hidden ships.\n All ships have to be sunk to win the game. It is a strategy type guessing game for two players. ")
+    
+        def wedge(self):
+            print("."*35)
+            print(" "*35)
+            print(" "*35)
+            
 def make_guess(board):
     """
     if it is computer guess it choses random column and a random column.
