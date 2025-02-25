@@ -145,6 +145,14 @@ class BoardMixin:
             return True  
 
 
+class SubBoard(BoardMixin, Board):
+    def __init__(self, size, num_of_ships, player_name, game_type):
+        """
+        Inherits the size, num_of_ships, player_name and game_type from Board class.
+        """
+        Board.__init__(self, size, num_of_ships, player_name, game_type)
+
+
 def make_guess(board):
     """
     if it is computer guess it choses random column and a random column.
