@@ -22,7 +22,7 @@ class Board:
         self.game_type = game_type
         self.player_board = [['O' for x in range(size)] for y in range(size)]
         self.my_guesses = []
-        self.my_ships = []
+        self.my_ships = set()
 
     def print(self):
         """
