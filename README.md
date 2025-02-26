@@ -22,10 +22,8 @@ This is a single player, where a human plays with the computer. Both parties are
 This game has no specific target market, anyone who is interested can play it. If you are interested in playing a game that is unpredictable, then you are in for a treat. ENJOY!!
 
 ## Features
-
-### Existing Features
-
 #### Welcome Message
+
 - At the top of the screen, an intoduction of the game is made visible for the player to read.
 - When the game starts running, a player is prompted to insert their name 
 
@@ -46,7 +44,7 @@ This game has no specific target market, anyone who is interested can play it. I
 - The ships of the computer's initial board are not visible. 
 - The size of the board determines how many ships will appear on each board. Please see screen print below:
 
-![Initial_Boards](README.md.docs/initial-boards.png)
+![initial_boards](README.md.docs/initial-boards.png)
 
 #### Guess Ship Location 
 
@@ -67,15 +65,16 @@ This game has no specific target market, anyone who is interested can play it. I
 
 ![Game Over](README.md.docs/game-over.png)
 
-### Features in detail
+### Manual Testing
 
 #### The Name Feature
 - A player is expected to insert their name to play.
 - If a player does not add a valid name or leave a blank space, a value error will appear
 - If a player adds a number instead of letters, a value error will pop up.
+- The error says 'Sorry you entered ' ' (if it's an empty string or entered value if there is.) which is not a valid name.'
 - A player will then be prompted to insert a name. Please see below image:
 
-![invalid name](README.md.docs/invalid-name.png)
+![invalid_name](README.md.docs/invalid-name.png)
 
 #### Choose Board Size Feature
 - A player will be welcomed with a personalised Welcome message

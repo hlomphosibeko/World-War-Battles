@@ -110,7 +110,7 @@ the second column and etc.""")
                 x = int(input('Insert the size of the board:'))
                 return x
             except ValueError as err:
-                print(f"{err} is not a Whole Number! Enter valid number...")
+                print(f"{err} is not a valid number...")
 
     def valid_int(prompt):
         """
@@ -121,7 +121,7 @@ the second column and etc.""")
                 x = int(input(prompt))
                 return x
             except ValueError:
-                print("This is not a Whole Number! Enter valid number...")
+                print("This is not a valid number...")
 
     def valid_coordinates(x, y, board):
         """
