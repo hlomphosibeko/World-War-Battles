@@ -27,7 +27,7 @@ This game has no specific target market, anyone who is interested can play it. I
 - At the top of the screen, an intoduction of the game is made visible for the player to read.
 - When the game starts running, a player is prompted to insert their name 
 
-![game-intro](game-intro.png)
+![game-intro](README.md.docs/game-intro.png)
 
 #### Player Name
 
