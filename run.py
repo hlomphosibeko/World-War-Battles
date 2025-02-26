@@ -5,6 +5,7 @@
 # '-' marks a MISSED
 
 from random import randint
+import os
 scores = {"Computer": 0, "Player": 0}
 
 
@@ -165,6 +166,9 @@ def make_guess(board):
         return board.guess_gen(board.random_num(), board.random_num())
 
 
+def clear_terminal():
+    os.system("cls" if os.name == "nt" else "clear")
+
 def play_game(computer_board, my_board):
     wedge(1, 35)
     for x in range(my_board.size):
@@ -172,6 +176,7 @@ def play_game(computer_board, my_board):
         wedge(1, 35)
         resc = make_guess(computer_board)
         resi = make_guess(my_board)
+        clear_terminal()
         print(f"{computer_board.player_name}'s Board")
         computer_board.print()
         print(f"{my_board.player_name} Guessed {computer_board.my_guesses[-1]}")
@@ -218,6 +223,7 @@ def start_game():
             player_name = y
             break
     BoardMixin.valid_name(player_name)
+    clear_terminal()
     print(f"Hello {player_name}, Welcome to World War Battles!!")
     wedge(1, 35)
     size = BoardMixin.valid_size()
