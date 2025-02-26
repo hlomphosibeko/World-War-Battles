@@ -27,14 +27,14 @@ This game has no specific target market, anyone who is interested can play it. I
 - At the top of the screen, an intoduction of the game is made visible for the player to read.
 - When the game starts running, a player is prompted to insert their name 
 
-![game-intro](image.png)
+![game-intro](game-intro.png)
 
 #### Player Name
 
 - At enter, a welcome message with the player's name will appear
 - Immediately after that, they are now prompted to insert the desired board size. Please see below screen print:
 
-![player-name](image-4.png)
+![player-name](README.md.docs/player-name.png)
 
 #### Initial Boards
 
@@ -44,7 +44,7 @@ This game has no specific target market, anyone who is interested can play it. I
 - The ships of the computer's initial board are not visible. 
 - The size of the board determines how many ships will appear on each board. Please see screen print below:
 
-![Initial_Boards](image-6.png)
+![Initial_Boards](README.md.docs/initial-boards.png)
 
 #### Guess Ship Location 
 
@@ -54,7 +54,7 @@ This game has no specific target market, anyone who is interested can play it. I
 - Once a player or the computer have inserted their guesses, a message will pop up informing the player if they hit or missed the ship.
 - At the bottom of each round scores will appear. Please see below screen: 
 
-![Guess ship location](image-13.png)
+![Guess ship location](README.md.docs/location-guess.png)
 
 #### Game Over
 
@@ -63,44 +63,39 @@ This game has no specific target market, anyone who is interested can play it. I
 - When the turns are finished, the final scores will appear, a message informing the players that the game is over will appear and the Game Over message will appear.
 - A player will then have to click on the 'Run Program' button to start a new game. Please see below screen:
 
-![Game Over](image-17.png)
+![Game Over](README.md.docs/game-over.png)
 
 
-### The Name Feature
+#### The Name Feature
 - A player is expected to insert their name to play.
 - If a player does not add a valid name or leave a blank space, a value error will appear
 - If a player adds a number instead of letters, a value error will pop up.
 - A player will then be prompted to insert a name. Please see below image:
 
-![invalid name](image-19.png)
+![invalid name](README.md.docs/invalid-name.png)
 
-### Choose Board Size Feature
+#### Choose Board Size Feature
 - A player will be welcomed with a personalised Welcome message
 - They will be prompted to insert a desired board size
 - If a player inserts an alphabet instead of a number, an error will apear. Please see image below:
 
-![invalid board input](image-21.png)
+![invalid board input](README.md.docs/inv-board-input.png)
 
 - If a number is inserted correctly, two initial boards will appear.
-- A board for the player 
+- A board for the player and a board for the computer
 
-![created board](image-22.png)
+![created board](README.md.docs/create-board.png)
 
-### 
-
-<!-- - When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
-
-![Valid number feature](README.md.docs/valid-number-feature.png) -->
 
 
 ### Features To Be Implemented
 
-- Allow player to choose their desired board size.
-- A feature to validate the player's name
+- Style the game using HTML and CSS
 
 ## Testing
 
-I have manually tested my code using PEP8 Python Validator.
+-I have manually tested my code using CI Python Linter (https://pep8ci.herokuapp.com/).
+
 * The results given: too many blank line, my code has many missing spaces after the ',' especially inside parenthesis's, and some lines are too long. Please see screen below:
 
 ![PEP8 results 1](README.md.docs/pep8-results1.png)
@@ -116,24 +111,60 @@ I have manually tested my code using PEP8 Python Validator.
 
 The rest of the trailing white spaces will be fixed on future implementations.
 
+- I have managed to remove trailing white spaces.
+- What remains is the long lines which cannot be shortened as they break the code. Please see screen below:
+
+![long lined errors](README.md.docs/long-lines-error.png)
+
+
 ### Bugs
-A board could not be created as it was not defined properly. It was not set properly
+- A board could not be created as it was not defined properly. It was not set properly
 
 ![First board](README.md.docs/first-board.png)
 
-In order to check if the game is running, I had used a list as seen on the below screen shot to tell if the ships have been hit or not. I used ‘!’ exclamation marks as placeholders, however my Mentor advised I use a different legend for good user experience. Please see below for previous matrix:
+- In order to check if the game is running, I had used a list as seen on the below screen shot to tell if the ships have been hit or not. I used ‘!’ exclamation marks as placeholders, however my Mentor advised I use a different legend for good user experience. Please see below for previous matrix:
 
 ![Old matrix](README.md.docs/old-matrix.png)
 
+- Now a player can choose their desired board size.
+- The board is user friendly and clear. Please see below:
+
+![new board](README.md.docs/new-board.png)
+
+- If a player inserts a number that is out of range when guessing the ship's location, the game would crash. Please see image below:
+
+![out of range](README.md.docs/out-range.png)
+
+- After adding a defense mechanism function to the game, instead of crashing, an error pops up and player will have chance to try again. Please see image below:
+
+![valid coordinates](README.md.docs/val-coordinates.png)
+
+- When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
+
+![Valid number feature](README.md.docs/valid-number-feature.png)
+
+- When a player did not insert their name, the game would continue. Please see screen below:
+
+![invalid name](README.md.docs/name-invalid.png)
+
+- However now, there is an error message that requires a player to add a name. Please see screen below:
+
+![new valid name](README.md.docs/new-val-name.png)
+
+- Missing ships were a result of the random function choosing the same values where a ship is already placed.
+- This was caused by inserting the shipd in a list with a random function which can repeat some co-ordinates.
+
+![missing ships](README.md.docs/missing-ships.png)
+
+- I fixed this with the seta data structure as it will only take in unique coordinates and ensure the loop breakes only when the length of the set is not equal to the size.
+
+![fixed missing ships](README.md.docs/fixed-ships.png)
 
 ### Unfixed bug
-- Player name validation.
-    - When a player inserts something either than a string, the game continues. Please see screen below:
 
-![Unfixed bug](README.md.docs/name-bug.png)
 
 ### Validator Testing
-- No errors were returned from PEP8online.com
+- No errors were returned from CI Python Linter except for the long lines that break the code.
 
 ## Deployment
 This project was deployed using Code Insitutte's mock terminal for Heroku.
@@ -155,4 +186,5 @@ This project was deployed using Code Insitutte's mock terminal for Heroku.
 * Vusi Sibeko, former Code Institute student, with validating coordinates.
 * Try and Error [W3School](https://www.w3schools.com/python/python_try_except.asp)
 * About Battleships game [Battleship](https://en.wikipedia.org/wiki/Battleship_(game))
+* Moritz, Mentor, helped with reducing a lot of code that was used and also adviced on adding a clear terminal function for the game.
 
