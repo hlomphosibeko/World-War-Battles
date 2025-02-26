@@ -2,7 +2,7 @@
 
 World War Battles is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.
 
-It is a strategy tye guessing game, where a player is playing against the computer to find its hidden ships. All ships have to be sunk to win the game. It is a strategy type guessing game for two players. 
+It is a strategy type guessing game, where a player is playing against the computer to find its hidden ships. All ships have to be sunk to win the game.
 
 [Here is the live version of my project](https://world-war-battles-c242ecc67e54.herokuapp.com/)
 
@@ -17,22 +17,26 @@ The game uses four symbols in which I would call Legends as placeholders:
     - `&` used to mark the player ships, and
     - `-` used to mark the guessed spots that 'Missed' a ship.
 
-This is a single player, where a human plays with the computer. Both parties are given a chance to make their guesses as to where the oponents ships are are located on the board. A player is given an opportunity to select preferred grid size. The selected size will have the same amount of hidden ships. The number of rounds a game has is dependent on the size of the board. Both players will be graded on a score board and when the game is over, both scores will be visible.
+This is a single player, where a human plays with the computer. Both parties are given a chance to make their guesses as to where the oponents ships are located on the board. A player is given an opportunity to select preferred grid size. The selected size will have the same amount of hidden ships. The number of rounds a game has, is dependent on the size of the board. Both players will be graded on a score board and when the game is over, both scores will be visible.
 
 This game has no specific target market, anyone who is interested can play it. If you are interested in playing a game that is unpredictable, then you are in for a treat. ENJOY!!
 
 ## Features
 ### Existing Features
 #### Welcome Message
-- At the top of the screen, a player is made aware of that they are about to embark on journey of the World War Battles
+- At the top of the screen, an intoduction of the game is made visible for the player to read.
 - When the game starts running, a player is prompted to insert their name 
-- A welcome message with the player's name will appear
 
-![Player name](README.md.docs/player-name.png)
+![game-intro](image.png)
 
+#### Player Name
+
+- At enter, a welcome message with the player's name will appear
 - Immediately after that, they are now prompted to insert the desired board size. Please see below screen print:
 
-![Board_Size](README.md.docs/board-size.png)
+![player-name](image-4.png)
+
+#### Initial Boards
 
 - On enter, two boards will appear with the same selected size number.
 - The player's initial board which shows where the ships are located. 
@@ -40,42 +44,53 @@ This game has no specific target market, anyone who is interested can play it. I
 - The ships of the computer's initial board are not visible. 
 - The size of the board determines how many ships will appear on each board. Please see screen print below:
 
-![Initial_Boards](README.md.docs/initial-boards.png)
+![Initial_Boards](image-6.png)
 
+#### Guess Ship Location 
 
+- The rounds each player has is depended on the board size.
 - A player will be prompted to guess where the ships are located on the computer board.
-- The computer will automatically guess as well. Please see screen print below:
-
-![Guess the ship location](README.md.docs/make-guess.png)
-
-- When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
-
-![Valid number feature](README.md.docs/valid-number-feature.png)
-
+- The computer will automatically guess as well.
 - Once a player or the computer have inserted their guesses, a message will pop up informing the player if they hit or missed the ship.
-- At the bottom of each round scores will appear. Please see below screen:
+- At the bottom of each round scores will appear. Please see below screen: 
 
-![Scores](README.md.docs/scores.png)
+![Guess ship location](image-13.png)
 
-Each game has 5 rounds.
+#### Game Over
 
-- If a player guesses the same spot repeatedly, an error will pop up.
-- The error: You have already guessed that coordinate. Please see below screen:
+- Scores will increase each time a hit is made.
+- When a player hits the oponents ship, an 'X' will overwrite the 'O' placeholder.
+- When the turns are finished, the final scores will appear, a message informing the players that the game is over will appear and the Game Over message will appear.
+- A player will then have to click on the 'Run Program' button to start a new game. Please see below screen:
 
-![Repeated guess](README.md.docs/repeated-guess.png)
+![Game Over](image-17.png)
 
-- When a player hits the oponents ship, an 'X' will overwrite the 'O' placeholder. Please see screen below:
 
-![Hit ship](README.md.docs/hit-ship.png)
+### The Name Feature
+- A player is expected to insert their name to play.
+- If a player does not add a valid name or leave a blank space, a value error will appear
+- If a player adds a number instead of letters, a value error will pop up.
+- A player will then be prompted to insert a name. Please see below image:
 
-- Scores will increase each time a hit is made. Please see screen below:
+![invalid name](image-19.png)
 
-![Increased scores](README.md.docs/increasing-scores.png)
+### Choose Board Size Feature
+- A player will be welcomed with a personalised Welcome message
+- They will be prompted to insert a desired board size
+- If a player inserts an alphabet instead of a number, an error will apear. Please see image below:
 
-- When the 5 rounds are over, a message will appear at the bottom of the screen informing a player that their rounds are done, which means the game is over.
-- The player will then have to click on the 'Run Program' button to start a new game. Please see below screen:
+![invalid board input](image-21.png)
 
-![End of game](README.md.docs/end-game.png) 
+- If a number is inserted correctly, two initial boards will appear.
+- A board for the player 
+
+![created board](image-22.png)
+
+### 
+
+<!-- - When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
+
+![Valid number feature](README.md.docs/valid-number-feature.png) -->
 
 
 ### Features To Be Implemented

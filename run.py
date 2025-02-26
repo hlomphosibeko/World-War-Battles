@@ -80,9 +80,9 @@ class BoardMixin:
     which runs in the Code Institute mock terminal on Heroku.
     It is a strategy tye guessing game,
     where a player is playing against the computer to find its hidden ships.
-    All ships have to be sunk to win the game. 
+    All ships have to be sunk to win the game.
     It is a strategy type guessing game for two players.""")
-        
+
     def valid_name(name):
         """
         This function checks if the name inserted is a valid name.
@@ -104,7 +104,7 @@ class BoardMixin:
                 x = int(input('Insert the size of the board:'))
                 return x
             except ValueError as err:
-                print(f"{err} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
+                print(f"{err} is not a Whole Number! Enter valid number...")
 
     def valid_int(prompt):
         """
@@ -115,11 +115,11 @@ class BoardMixin:
                 x = int(input(prompt))
                 return x
             except ValueError:
-                print("This is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
+                print("This is not a Whole Number! Enter valid number...")
 
     def valid_coordinates(x, y, board):
         """
-        validate that the cordinates inputs that validates that not yet guessed.
+        It validates the input is not repeated.
         Validate that they are not outside our board.
         """
         while True:
@@ -137,17 +137,18 @@ class BoardMixin:
                 return False
             try:
                 if (x, y) in board.my_guesses:
-                    raise ValueError(f"Sorry you have already guessed {(x,y)}!")
+                    raise ValueError(
+                        f"Sorry you have already guessed {(x,y)}!")
             except ValueError as err:
                 print(f"Invalid guess:{err},please try again.\n")
                 return False
-            return True  
+            return True
 
 
 def wedge(lines=1, length=35):
     for x in range(lines):
         print("." * length)
-    
+
 
 def make_guess(board):
     """
@@ -169,6 +170,7 @@ def make_guess(board):
 def clear_terminal():
     os.system("cls" if os.name == "nt" else "clear")
 
+
 def play_game(computer_board, my_board):
     wedge(1, 35)
     for x in range(my_board.size):
@@ -179,27 +181,32 @@ def play_game(computer_board, my_board):
         clear_terminal()
         print(f"{computer_board.player_name}'s Board")
         computer_board.print()
-        print(f"{my_board.player_name} Guessed {computer_board.my_guesses[-1]}")
+        print(
+            f"{my_board.player_name} Guessed {computer_board.my_guesses[-1]}")
         if resc == "Hit":
-            print(f"{my_board.player_name} Bombed {computer_board.player_name}'s ship!!!!")
+            print(
+                f"{my_board.player_name} Bombed {computer_board.player_name}'s ship!!!!")
             scores['Player'] += 1
         else:
-            print(f"{my_board.player_name} Missed {computer_board.player_name}'s ship!!!!")
+            print(
+                f"{my_board.player_name} Missed {computer_board.player_name}'s ship!!!!")
         wedge(2, 35)
         print(f"{my_board.player_name}'s Board")
         my_board.print()
-        print(f"{computer_board.player_name} Guessed {my_board.my_guesses[-1]}")
+        print(
+            f"{computer_board.player_name} Guessed {my_board.my_guesses[-1]}")
         if resi == "Hit":
-            print(f"{computer_board.player_name} Bombed {my_board.player_name}'s ship!!!!")
+            print(
+                f"{computer_board.player_name} Bombed {my_board.player_name}'s ship!!!!")
             scores['Computer'] += 1
         else:
-            print(f"{computer_board.player_name} Missed the {my_board.player_name}'s ship!!!!")
+            print(
+                f"{computer_board.player_name} Missed the {my_board.player_name}'s ship!!!!")
         wedge(2, 35)
         print("Updated scores: ")
         print(
             f"Computer: {scores[computer_board.player_name]} {my_board.player_name}: {scores['Player']}"
         )
-        
     wedge(2, 35)
     print("You have used all your turns.")
     print("The game is over!!.")
@@ -218,7 +225,8 @@ def start_game():
         y = input("Please insert your name:")
         x = len(y)
         if x <= 0 or y.isnumeric():
-            print(f"Sorry you entered '{y}' which is not a valid name. Try again...")
+            print(
+                f"Sorry you entered '{y}' which is not a valid name.")
         else:
             player_name = y
             break
@@ -231,8 +239,9 @@ def start_game():
     my_board = Board(size, num_ships, player_name, 'Player')
     computer_board = Board(size, num_ships, 'Computer', 'Computer')
     while len(my_board.my_ships) < size:
-        my_board.ship_gen(my_board.random_num(),my_board.random_num())
-        computer_board.ship_gen(computer_board.random_num(), computer_board.random_num())
+        my_board.ship_gen(my_board.random_num(), my_board.random_num())
+        computer_board.ship_gen(
+            computer_board.random_num(), computer_board.random_num())
     print("Computer's initial board: ")
     computer_board.print()
     wedge(1, 35)
@@ -241,4 +250,5 @@ def start_game():
     wedge(1, 35)
     play_game(computer_board, my_board)
 
-start_game()  
+
+start_game()
