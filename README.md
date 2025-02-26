@@ -187,4 +187,5 @@ This project was deployed using Code Insitutte's mock terminal for Heroku.
 * Try and Error [W3School](https://www.w3schools.com/python/python_try_except.asp)
 * About Battleships game [Battleship](https://en.wikipedia.org/wiki/Battleship_(game))
 * Moritz, Mentor, helped with reducing a lot of code that was used and also adviced on adding a clear terminal function for the game.
+* To refresh my memory on how to clear terminals, I used the following links (https://github.com/Cushione/veggie_garden/blob/main/src/utils.py#L116), (https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python) and to add on my understanding, I used (https://www.geeksforgeeks.org/clear-screen-python/).
 
