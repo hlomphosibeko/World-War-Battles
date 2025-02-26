@@ -70,7 +70,18 @@ class BoardMixin:
     """
     Handles the defense mechanism of the game.
     """
-
+    def description():
+        """
+        This function describes what the game is about.
+        """
+        print("""
+    World War Battles is a Python terminal game,
+    which runs in the Code Institute mock terminal on Heroku.
+    It is a strategy tye guessing game,
+    where a player is playing against the computer to find its hidden ships.
+    All ships have to be sunk to win the game. 
+    It is a strategy type guessing game for two players.""")
+        
     def valid_name(name):
         """
         This function checks if the name inserted is a valid name.
@@ -93,18 +104,6 @@ class BoardMixin:
                 return x
             except ValueError as err:
                 print(f"{err} is not a Whole Number! good eg's: 0 or 1 or 2 or 3...")
-
-    def description():
-        """
-        This function describes what the game is about.
-        """
-        print("""
-    World War Battles is a Python terminal game,
-    which runs in the Code Institute mock terminal on Heroku.
-    It is a strategy tye guessing game,
-    where a player is playing against the computer to find its hidden ships.
-    All ships have to be sunk to win the game. 
-    It is a strategy type guessing game for two players.""")
 
     def valid_int(prompt):
         """
@@ -144,19 +143,10 @@ class BoardMixin:
             return True  
 
 
-class SubBoard(BoardMixin, Board):
-    def __init__(self, size, num_of_ships, player_name, game_type):
-        """
-        Inherits the size, num_of_ships, player_name and game_type from Board class.
-        """
-        Board.__init__(self, size, num_of_ships, player_name, game_type)
-
+def wedge(lines=1, length=35):
+    for x in range(lines):
+        print("." * length)
     
-    def wedge(self):
-        print("."*35)
-        print(" "*35)
-        print(" "*35)
-
 
 def make_guess(board):
     """
@@ -176,13 +166,13 @@ def make_guess(board):
 
 
 def play_game(computer_board, my_board):
-    print("."*35)
+    wedge(1, 35)
     for x in range(my_board.size):
         print(f"<<<<<----- Round {x +1}.----->>>>>")
-        print("."*35)
-        print(f"{computer_board.player_name}'s Board")
+        wedge(1, 35)
         resc = make_guess(computer_board)
         resi = make_guess(my_board)
+        print(f"{computer_board.player_name}'s Board")
         computer_board.print()
         print(f"{my_board.player_name} Guessed {computer_board.my_guesses[-1]}")
         if resc == "Hit":
@@ -190,8 +180,7 @@ def play_game(computer_board, my_board):
             scores['Player'] += 1
         else:
             print(f"{my_board.player_name} Missed {computer_board.player_name}'s ship!!!!")
-        print("."*35)
-        print("."*35)
+        wedge(2, 35)
         print(f"{my_board.player_name}'s Board")
         my_board.print()
         print(f"{computer_board.player_name} Guessed {my_board.my_guesses[-1]}")
@@ -200,17 +189,13 @@ def play_game(computer_board, my_board):
             scores['Computer'] += 1
         else:
             print(f"{computer_board.player_name} Missed the {my_board.player_name}'s ship!!!!")
-        print("."*35)
-        print("."*35)
-        print(" "*35)
+        wedge(2, 35)
         print("Updated scores: ")
         print(
             f"Computer: {scores[computer_board.player_name]} {my_board.player_name}: {scores['Player']}"
         )
-        my_board.wedge()
-    print("."*35)
-    print("."*35)
-    print("."*35)
+        
+    wedge(2, 35)
     print("You have used all your turns.")
     print("The game is over!!.")
 
@@ -219,11 +204,10 @@ def start_game():
     """
     This function runs game.
     """
-    print("."*115)
+    wedge(1, 80)
     print("WORLD WAR BATTLES!!")
     BoardMixin.description()
-    print("."*115)
-    print("."*115)
+    wedge(2, 80)
     player_name = None
     while True:
         y = input("Please insert your name:")
@@ -235,20 +219,20 @@ def start_game():
             break
     BoardMixin.valid_name(player_name)
     print(f"Hello {player_name}, Welcome to World War Battles!!")
-    print("."*35)
+    wedge(1, 35)
     size = BoardMixin.valid_size()
     num_ships = size-1
-    my_board = SubBoard(size, num_ships, player_name, 'Player')
-    computer_board = SubBoard(size, num_ships, 'Computer', 'Computer')
+    my_board = Board(size, num_ships, player_name, 'Player')
+    computer_board = Board(size, num_ships, 'Computer', 'Computer')
     while len(my_board.my_ships) < size:
         my_board.ship_gen(my_board.random_num(),my_board.random_num())
         computer_board.ship_gen(computer_board.random_num(), computer_board.random_num())
     print("Computer's initial board: ")
     computer_board.print()
-    print("."*35)
+    wedge(1, 35)
     print(f"{player_name}'s initial board:")
     my_board.print()
-    print("."*35)
+    wedge(1, 35)
     play_game(computer_board, my_board)
 
 start_game()  
