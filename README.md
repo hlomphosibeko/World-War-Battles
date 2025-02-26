@@ -79,24 +79,35 @@ This game has no specific target market, anyone who is interested can play it. I
 #### Choose Board Size Feature
 - A player will be welcomed with a personalised Welcome message
 - They will be prompted to insert a desired board size
-- If a player inserts an alphabet instead of a number, an error will apear. Please see image below:
+- If a player inserts an alphabet instead of a number, a value error "invalid literal for int() with base 10: 'g' (if a string is inserted instead of an interger) is not a valid number" will appear. Please see image below:
 
-![invalid board input](README.md.docs/inv-board-input.png)
+![invalid_board_input](README.md.docs/inv-board-input.png)
+
 
 - If a number is inserted correctly, two initial boards will appear.
 - A board for the player and a board for the computer
 
-![created board](README.md.docs/create-board.png)
+![created_board](README.md.docs/create-board.png)
 
+#### Row and Column Selection
+- A player is requested to guess where the computer's ships are located.
+- A player chooses 2 numbers of coordinates (x & y) within range of board size. So any number between 0 and board size.
+- If a player inserts numbers that are outside the board range, an error "Sorry you entered invalid input 5 (which is the number inserted by the player) is more than board size. Please see image below:
 
+![ship_shoot](README.md.docs/ship-shoot.png)
+
+- If the right coordinates have been inserted, the boards will be printed and both guesses will appear.
+- If a ship is hit, the scores will increase. Please see image below:
+
+![guessed_ships](README.md.docs/guessed-ships.png)
 
 ### Features To Be Implemented
 
 - Style the game using HTML and CSS
 - Make the board read from 1 and not from 0 such that when a user enters row 1 for example, then the row function is incremented by 1.
 
-## Testing
-### Manual Testing
+
+## PEP8 Testing
 -I have manually tested my code using CI Python Linter (https://pep8ci.herokuapp.com/).
 
 * The results given: too many blank line, my code has many missing spaces after the ',' especially inside parenthesis's, and some lines are too long. Please see screen below:
@@ -121,10 +132,16 @@ The rest of the trailing white spaces will be fixed on future implementations.
 
 
 ### Fixed Bugs
+
+#### Board Creation
 - `Problem`: A board could not be created as it was not defined properly. It was not set properly. See image below:
 
 ![First board](README.md.docs/first-board.png)
 
+- `Solution`: 
+![alt text](image.png)
+
+#### Board View
 - `Problem`: In order to check if the game is running, I had used a list as seen on the below screen shot to tell if the ships have been hit or not. I used ‘!’ exclamation marks as placeholders, however my Mentor advised I use a different legend for good user experience. Please see below for previous matrix:
 
 ![Old matrix](README.md.docs/old-matrix.png)
@@ -135,6 +152,7 @@ The rest of the trailing white spaces will be fixed on future implementations.
 
 ![new board](README.md.docs/new-board.png)
 
+#### Coordinates Number Range
 - `Problem`: If a player inserts a number that is out of range when guessing the ship's location, the game would crash. Please see image below:
 
 ![out of range](README.md.docs/out-range.png)
@@ -143,10 +161,12 @@ The rest of the trailing white spaces will be fixed on future implementations.
 
 ![valid coordinates](README.md.docs/val-coordinates.png)
 
+
 - `Problem`: When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
 
 ![Valid number feature](README.md.docs/valid-number-feature.png)
 
+#### Name Validation
 - `Problem`: When a player did not insert their name, the game would continue. Please see screen below:
 
 ![invalid name](README.md.docs/name-invalid.png)
@@ -158,6 +178,7 @@ The rest of the trailing white spaces will be fixed on future implementations.
 
 ![new valid name](README.md.docs/new-val-name.png)
 
+#### Ship Coordination
 `Problem`:
 - Missing ships were a result of the random function choosing the same values where a ship is already placed.
 - This was caused by inserting the shipd in a list with a random function which can repeat some co-ordinates.
@@ -168,8 +189,6 @@ The rest of the trailing white spaces will be fixed on future implementations.
 
 ![fixed missing ships](README.md.docs/fixed-ships.png)
 
-### Unfixed bug
-
 
 ### Validator Testing
 - No errors were returned from CI Python Linter except for the long lines that break the code.
@@ -178,12 +197,18 @@ The rest of the trailing white spaces will be fixed on future implementations.
 This project was deployed using Code Insitutte's mock terminal for Heroku.
 
 - Steps for deployment:
-    - Fork or clone this repository
     - Clone this project repository to use VS Code as workspace
+    ![alt text](image-4.png)
+    ![alt text](image-6.png)
     - Create a new Heroku App for all my project deployments
+    ![alt text](image-13.png)
+    
     - Set the buildpacks to Python and NodeJS in that order on Heroku app
+    ![alt text](image-19.png)
     - Link the Heroku app to the repository
+    ![alt text](image-21.png)
     - Click on Deploy to make my project live.
+    ![alt text](image-17.png)
 
 
 ## Credits
