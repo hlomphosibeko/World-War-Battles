@@ -78,7 +78,7 @@ class BoardMixin:
         print("""
     World War Battles is a Python terminal game,
     which runs in the Code Institute mock terminal on Heroku.
-    It is a strategy tye guessing game,
+    It is a strategy type guessing game,
     where a player is playing against the computer to find its hidden ships.
     All ships have to be sunk to win the game.
     It is a strategy type guessing game for two players.""")
