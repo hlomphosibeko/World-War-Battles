@@ -55,10 +55,10 @@ class Board:
         y and appends it to the my_ships list.
         """
         if self.game_type == 'Computer':
-            return self.my_ships.append((x, y))
+            return self.my_ships.add((x, y))
         else:
             self.player_board[x][y] = '&'
-            self.my_ships.append((x, y))
+            self.my_ships.add((x, y))
 
     def random_num(self):
         """
