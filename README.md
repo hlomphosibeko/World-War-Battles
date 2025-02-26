@@ -22,7 +22,9 @@ This is a single player, where a human plays with the computer. Both parties are
 This game has no specific target market, anyone who is interested can play it. If you are interested in playing a game that is unpredictable, then you are in for a treat. ENJOY!!
 
 ## Features
+
 ### Existing Features
+
 #### Welcome Message
 - At the top of the screen, an intoduction of the game is made visible for the player to read.
 - When the game starts running, a player is prompted to insert their name 
@@ -65,6 +67,7 @@ This game has no specific target market, anyone who is interested can play it. I
 
 ![Game Over](README.md.docs/game-over.png)
 
+### Features in detail
 
 #### The Name Feature
 - A player is expected to insert their name to play.
@@ -91,9 +94,10 @@ This game has no specific target market, anyone who is interested can play it. I
 ### Features To Be Implemented
 
 - Style the game using HTML and CSS
+- Make the board read from 1 and not from 0 such that when a user enters row 1 for example, then the row function is incremented by 1.
 
 ## Testing
-
+### Manual Testing
 -I have manually tested my code using CI Python Linter (https://pep8ci.herokuapp.com/).
 
 * The results given: too many blank line, my code has many missing spaces after the ',' especially inside parenthesis's, and some lines are too long. Please see screen below:
@@ -117,46 +121,51 @@ The rest of the trailing white spaces will be fixed on future implementations.
 ![long lined errors](README.md.docs/long-lines-error.png)
 
 
-### Bugs
-- A board could not be created as it was not defined properly. It was not set properly
+### Fixed Bugs
+- `Problem`: A board could not be created as it was not defined properly. It was not set properly. See image below:
 
 ![First board](README.md.docs/first-board.png)
 
-- In order to check if the game is running, I had used a list as seen on the below screen shot to tell if the ships have been hit or not. I used ‘!’ exclamation marks as placeholders, however my Mentor advised I use a different legend for good user experience. Please see below for previous matrix:
+- `Problem`: In order to check if the game is running, I had used a list as seen on the below screen shot to tell if the ships have been hit or not. I used ‘!’ exclamation marks as placeholders, however my Mentor advised I use a different legend for good user experience. Please see below for previous matrix:
 
 ![Old matrix](README.md.docs/old-matrix.png)
 
-- Now a player can choose their desired board size.
-- The board is user friendly and clear. Please see below:
+- `Solution`:
+- I created a function where a player can generate their own desired board by inserting a size.
+- I used `O` as placeholders for good user experience. Please see below:
 
 ![new board](README.md.docs/new-board.png)
 
-- If a player inserts a number that is out of range when guessing the ship's location, the game would crash. Please see image below:
+- `Problem`: If a player inserts a number that is out of range when guessing the ship's location, the game would crash. Please see image below:
 
 ![out of range](README.md.docs/out-range.png)
 
-- After adding a defense mechanism function to the game, instead of crashing, an error pops up and player will have chance to try again. Please see image below:
+- `Solution`: After adding a defense mechanism function, which includes try and except error handling to the game, instead of crashing, an error pops up and player will have chance to try again. So the game does not crash while playing. Please see image below:
 
 ![valid coordinates](README.md.docs/val-coordinates.png)
 
-- When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
+- `Problem`: When a string is added in the place of an integer when making a guess of the ship location, the game shows an error message then prompts a player to insert a number. Please see screen below:
 
 ![Valid number feature](README.md.docs/valid-number-feature.png)
 
-- When a player did not insert their name, the game would continue. Please see screen below:
+- `Problem`: When a player did not insert their name, the game would continue. Please see screen below:
 
 ![invalid name](README.md.docs/name-invalid.png)
 
-- However now, there is an error message that requires a player to add a name. Please see screen below:
+- `Solution`:
+- I created a function that checks the name each time it is inserted, if it is a valid name.
+- This function has a defense mechanism which checks the characters of the name and if the name has an unkown character, it shows a UnicodeError but the game still runs
+- This function does not allow the game to continue without inserting a name. Please see screen below:
 
 ![new valid name](README.md.docs/new-val-name.png)
 
+`Problem`:
 - Missing ships were a result of the random function choosing the same values where a ship is already placed.
 - This was caused by inserting the shipd in a list with a random function which can repeat some co-ordinates.
 
 ![missing ships](README.md.docs/missing-ships.png)
 
-- I fixed this with the seta data structure as it will only take in unique coordinates and ensure the loop breakes only when the length of the set is not equal to the size.
+- `Solution`: I fixed this with the set() data structure as it will only take in unique coordinates and ensure the loop breakes only when the length of the set is not equal to the size.
 
 ![fixed missing ships](README.md.docs/fixed-ships.png)
 
@@ -173,7 +182,7 @@ This project was deployed using Code Insitutte's mock terminal for Heroku.
     - Fork or clone this repository
     - Clone this project repository to use VS Code as workspace
     - Create a new Heroku App for all my project deployments
-    - Set the buildbacks to Python and NodeJS in that order on Heroku app
+    - Set the buildpacks to Python and NodeJS in that order on Heroku app
     - Link the Heroku app to the repository
     - Click on Deploy to make my project live.
 
