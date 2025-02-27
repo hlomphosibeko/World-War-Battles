@@ -76,21 +76,20 @@ class BoardMixin:
         This function describes what the game is about.
         """
         print("""
-World War Battles is a Python terminal game,
-which runs in the Code Institute mock
-terminal on Heroku.
-It is a strategy type guessing game,
-where a player is playing against the
-computer to find its hidden ships.
-All ships have to be sunk to win the game.
-It is a strategy type guessing game for
-two players.The rows read from 0 up to but
-not including the size number,
-eg: row 0 is the first row, 
-and row 1 is the second row and etc. 
-Similarly, column 0 is the first column,
-and column 1 is the second column
-and etc.""")
+World War Battles is a Python terminal
+game, which runs in the Code Institute
+mock terminal on Heroku. It is a strategy
+type guessing game, where a player
+is playing against the computer to find
+its hidden ships. All ships have to be
+sunk to win the game. It is a strategy
+type guessing game for two players.
+The rows read from 0 up to but not
+including the size number, eg: row 0 is
+the first row, and row 1 is the second
+row and etc. Similarly, column 0 is the
+first column, and column 1 is the second
+column and etc.""")
 
     def valid_name(name):
         """
@@ -218,7 +217,7 @@ def play_game(computer_board, my_board):
         )
     wedge(2, 35)
     print("You have used all your turns.")
-    print("The game is over!!.")
+    print("!!!!GAME OVER!!!!")
 
 
 def start_game():
@@ -231,7 +230,7 @@ def start_game():
     wedge(2, 80)
     player_name = None
     while True:
-        y = input("Please insert your name:")
+        y = input("PLEASE INSERT YOUR NAME TO PLAY: ")
         x = len(y)
         if x <= 0 or y.isnumeric():
             print(
