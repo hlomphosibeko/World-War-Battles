@@ -101,7 +101,7 @@ This game has no specific target market, anyone who is interested can play it. I
 
 ![guessed_ships](README.md.docs/guessed-ships.png)
 
-### Features To Be Implemented
+### Future Implementations
 
 - Style the game using HTML and CSS
 - Make the board read from 1 and not from 0 such that when a user enters row 1 for example, then the row function is incremented by 1.
@@ -134,12 +134,13 @@ The rest of the trailing white spaces will be fixed on future implementations.
 ### Fixed Bugs
 
 #### Board Creation
-- `Problem`: A board could not be created as it was not defined properly. It was not set properly. See image below:
+- `Problem`: A board could not be created as the range was not defined properly. It was not set properly. See image below:
 
 ![First board](README.md.docs/first-board.png)
 
-- `Solution`: 
-![alt text](image.png)
+- `Solution`: I fixed the range of the board with list comprehensions by creating a player board which allows for size of the board to be in range of what the player has inserted. Please see image below:
+
+![new board](README.md.docs/new-board.png)
 
 #### Board View
 - `Problem`: In order to check if the game is running, I had used a list as seen on the below screen shot to tell if the ships have been hit or not. I used ‘!’ exclamation marks as placeholders, however my Mentor advised I use a different legend for good user experience. Please see below for previous matrix:
@@ -197,18 +198,28 @@ The rest of the trailing white spaces will be fixed on future implementations.
 This project was deployed using Code Insitutte's mock terminal for Heroku.
 
 - Steps for deployment:
+    - Fork or clone this repository.
     - Clone this project repository to use VS Code as workspace
-    ![alt text](image-4.png)
-    ![alt text](image-6.png)
+
+    ![codespaces](README.md.docs/codespace.png)
+
+    ![vs_code](README.md.docs/vs-code.png)
+
     - Create a new Heroku App for all my project deployments
-    ![alt text](image-13.png)
+
+    ![heroku](README.md.docs/heroku-app.png)
     
     - Set the buildpacks to Python and NodeJS in that order on Heroku app
-    ![alt text](image-19.png)
+
+    ![buildpacks](README.md.docs/buildpacks.png)
+
     - Link the Heroku app to the repository
-    ![alt text](image-21.png)
+
+    ![heroku_github_link](README.md.docs/heroku-connect.png)
+
     - Click on Deploy to make my project live.
-    ![alt text](image-17.png)
+
+    ![heroku_deploy](README.md.docs/heroku-deploy.png)
 
 
 ## Credits
